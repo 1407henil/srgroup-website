@@ -1,0 +1,17 @@
+---
+export interface Props {
+  as?: keyof HTMLElementTagNameMap;
+  class?: string;
+  id?: string;
+}
+
+const {
+  as: Tag = "section",
+  class: className = "",
+  id,
+} = Astro.props;
+---
+
+<Tag id={id} class:list={["section", className]}>
+  <slot />
+</Tag>

@@ -1,0 +1,121 @@
+---
+import Container from "../Container.astro";
+import Section from "../Section.astro";
+---
+
+<Section>
+
+  <Container>
+
+    <div class="story-grid">
+
+      <div class="heading">
+
+        <p class="eyebrow">OUR STORY</p>
+
+        <h2>
+          Nearly three decades of manufacturing built on trust.
+        </h2>
+
+      </div>
+
+      <div class="content">
+
+        <p>
+          S R Group is a family-owned chemical manufacturing group based in
+          Chhatral GIDC, Gujarat.
+        </p>
+
+        <p>
+          Established in 1997 by the late Shri Ramanbhai Patel together with
+          his sons, Nilesh Patel and Krushi Patel, the company was founded with
+          a clear vision — to build a business rooted in integrity, dependable
+          products, and lasting customer relationships.
+        </p>
+
+        <p>
+          Over the years, S R Group has grown into three manufacturing
+          companies — S R Industries, S R Plast, and S R Polymers —
+          manufacturing industrial chemicals, distilled solvents, and
+          unsaturated polyester resins for customers across India while
+          steadily expanding into international markets.
+        </p>
+
+        <p>
+          With a strong foundation built over nearly three decades,
+          Henil Patel and Kushal Patel represent the next generation of
+          S R Group, carrying forward its legacy by combining the company's
+          core values with a modern approach to manufacturing and innovation.
+        </p>
+
+        <p>
+          As the business continues to evolve, the principles on which it was
+          founded remain unchanged.
+        </p>
+
+      </div>
+
+    </div>
+
+  </Container>
+
+</Section>
+
+<style>
+
+.story-grid{
+display:grid;
+grid-template-columns:1fr 1.5fr;
+gap:6rem;
+align-items:start;
+}
+
+.heading{
+position:sticky;
+top:120px;
+}
+
+.eyebrow{
+font-size:.85rem;
+font-weight:600;
+letter-spacing:.15em;
+text-transform:uppercase;
+color:var(--color-accent);
+margin-bottom:1rem;
+}
+
+.heading h2{
+max-width:360px;
+}
+
+.content{
+display:flex;
+flex-direction:column;
+gap:2rem;
+}
+
+.content p{
+font-size:1.1rem;
+line-height:1.9;
+color:var(--color-text-light);
+margin:0;
+}
+
+@media (max-width:900px){
+
+.story-grid{
+grid-template-columns:1fr;
+gap:3rem;
+}
+
+.heading{
+position:static;
+}
+
+.heading h2{
+max-width:none;
+}
+
+}
+
+</style>

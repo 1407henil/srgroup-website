@@ -10,23 +10,59 @@ const pageDescription =
   title={pageTitle}
 >
 
-  <section class="page-hero">
-    <div class="container">
+<section class="page-hero">
+  <div class="container">
 
-      <p class="eyebrow">About S R Group</p>
+    <p class="eyebrow">About S R Group</p>
 
-      <h1>
-        Nearly three decades of manufacturing excellence.
-      </h1>
+    <h1>
+      Built on Trust.<br />
+      Driven by Family Values.
+    </h1>
 
-      <p class="intro">
-        Since 1997, S R Group has grown through long-term relationships,
-        consistent manufacturing practices, and a commitment to delivering
-        dependable industrial chemical solutions.
+    <p class="intro">
+      S R Group is a family-owned chemical manufacturing group based in
+      Chhatral GIDC, Gujarat. Since 1997, we have built lasting relationships
+      by delivering dependable products, maintaining consistent quality, and
+      putting integrity at the centre of everything we do.
+    </p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container about-grid">
+
+    <div>
+      <h2>Our Story</h2>
+    </div>
+
+    <div>
+
+      <p>
+        Established in 1997 by the late Shri Ramanbhai Patel together with
+        his sons, Nilesh Patel and Krushi Patel, S R Group was founded with a
+        clear vision—to build a manufacturing business based on quality,
+        consistency, and long-term customer relationships.
+      </p>
+
+      <p>
+        What began as a single manufacturing unit has steadily grown into a
+        diversified group comprising S R Industries, S R Plast, and
+        S R Polymers, serving customers across a wide range of industries.
+      </p>
+
+      <p>
+        With a strong foundation built over nearly three decades, Henil Patel
+        and Kushal Patel represent the next generation of S R Group, carrying
+        forward its legacy with the same commitment to integrity, quality, and
+        long-term relationships that have defined the company since 1997.
       </p>
 
     </div>
-  </section>
+
+  </div>
+</section>
 
 </BaseLayout>
 
@@ -66,6 +102,34 @@ const pageDescription =
   color:var(--color-text-light);
 
   font-size:1.15rem;
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1.3fr;
+  gap:5rem;
+  align-items:start;
+}
+
+.about-grid h2{
+  margin:0;
+}
+
+.about-grid p{
+  color:var(--color-text-light);
+}
+
+.about-grid p:not(:last-child){
+  margin-bottom:1.5rem;
+}
+
+@media (max-width:900px){
+
+  .about-grid{
+    grid-template-columns:1fr;
+    gap:2rem;
+  }
+
 }
 
 </style>

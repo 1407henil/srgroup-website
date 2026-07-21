@@ -1,0 +1,6 @@
+.container{
+width:min(var(--container),calc(100% - 3rem));
+margin-inline:auto;
+}
+.section{padding-block:var(--space-8);}
+.grid{display:grid;gap:var(--space-6);}

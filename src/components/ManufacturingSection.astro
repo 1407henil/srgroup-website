@@ -1,0 +1,115 @@
+---
+import Container from "./Container.astro";
+import Section from "./Section.astro";
+---
+
+<Section>
+  <Container>
+    <div class="section-header">
+      <p class="eyebrow">Manufacturing Excellence</p>
+
+      <h2>
+        Built on experience.<br />
+        Driven by quality.
+      </h2>
+
+      <p class="intro">
+        Every product is backed by consistent manufacturing practices,
+        process control, and a commitment to long-term customer
+        relationships.
+      </p>
+    </div>
+
+    <div class="features">
+
+      <article class="feature">
+        <span class="number">01</span>
+
+        <h3>Since 1997</h3>
+
+        <p>
+          Nearly three decades of manufacturing experience serving
+          industrial customers across India.
+        </p>
+      </article>
+
+      <article class="feature">
+        <span class="number">02</span>
+
+        <h3>Reliable Manufacturing</h3>
+
+        <p>
+          Consistent production processes focused on quality,
+          dependability, and continuous improvement.
+        </p>
+      </article>
+
+      <article class="feature">
+        <span class="number">03</span>
+
+        <h3>Customer Focus</h3>
+
+        <p>
+          Building long-term relationships through dependable supply
+          and responsive service.
+        </p>
+      </article>
+
+    </div>
+  </Container>
+</Section>
+
+<style>
+.section-header{
+  max-width:760px;
+  margin-bottom:4rem;
+}
+
+.eyebrow{
+  color:var(--color-accent);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:.85rem;
+  font-weight:600;
+  margin-bottom:1rem;
+}
+
+.intro{
+  max-width:620px;
+  color:var(--color-text-light);
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2rem;
+}
+
+.feature{
+  padding:2rem;
+  border:1px solid var(--color-border);
+}
+
+.number{
+  display:inline-block;
+  margin-bottom:1.5rem;
+  color:var(--color-accent);
+  font-weight:700;
+}
+
+.feature h3{
+  margin-bottom:1rem;
+}
+
+.feature p{
+  color:var(--color-text-light);
+}
+
+@media (max-width:900px){
+
+.features{
+grid-template-columns:1fr;
+}
+
+}
+</style>

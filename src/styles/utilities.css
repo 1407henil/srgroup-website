@@ -1,6 +1,11 @@
 .container{
-width:min(var(--container),calc(100% - 3rem));
-margin-inline:auto;
+
+    width:min(100% - 2rem,var(--container));
+
+    margin-inline:auto;
 }
-.section{padding-block:var(--space-8);}
-.grid{display:grid;gap:var(--space-6);}
+
+.section{
+
+    padding:var(--section-space) 0;
+}

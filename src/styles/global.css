@@ -1,10 +1,45 @@
-@import './tokens.css';
-@import './typography.css';
-@import './utilities.css';
-@import './animations.css';
+@import "./tokens.css";
+@import "./typography.css";
+@import "./utilities.css";
+@import "./animations.css";
 
-*,*::before,*::after{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{margin:0;background:var(--color-bg);}
-img{display:block;max-width:100%;}
-a{color:inherit;text-decoration:none;}
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    margin:0;
+
+    background:var(--color-bg);
+
+    color:var(--color-text);
+
+    font-family:var(--font-body);
+
+    line-height:1.7;
+
+    -webkit-font-smoothing:antialiased;
+
+    text-rendering:optimizeLegibility;
+}
+
+img{
+
+    display:block;
+
+    max-width:100%;
+}
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+}

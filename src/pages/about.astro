@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "About S R Group";
+const pageDescription =
+  "Learn about S R Group, our history, manufacturing expertise, and the companies that have built our legacy since 1997.";
+---
+
+<BaseLayout
+  title={pageTitle}
+>
+
+  <section class="page-hero">
+    <div class="container">
+
+      <p class="eyebrow">About S R Group</p>
+
+      <h1>
+        Nearly three decades of manufacturing excellence.
+      </h1>
+
+      <p class="intro">
+        Since 1997, S R Group has grown through long-term relationships,
+        consistent manufacturing practices, and a commitment to delivering
+        dependable industrial chemical solutions.
+      </p>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+
+.page-hero{
+  padding:7rem 0 5rem;
+}
+
+.page-hero .container{
+  max-width:900px;
+}
+
+.eyebrow{
+  margin-bottom:1rem;
+
+  color:var(--color-accent);
+
+  font-size:.9rem;
+
+  font-weight:600;
+
+  letter-spacing:.08em;
+
+  text-transform:uppercase;
+}
+
+.page-hero h1{
+  margin-bottom:1.5rem;
+
+  max-width:800px;
+}
+
+.intro{
+  max-width:720px;
+
+  color:var(--color-text-light);
+
+  font-size:1.15rem;
+}
+
+</style>

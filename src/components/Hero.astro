@@ -1,0 +1,79 @@
+---
+import Container from "./Container.astro";
+import Button from "./Button.astro";
+---
+
+<section class="hero">
+  <Container>
+    <div class="hero-content">
+      <p class="eyebrow">Established 1997</p>
+
+      <h1>
+        Manufacturing trusted chemical solutions for industries across India.
+      </h1>
+
+      <p class="intro">
+        S R Group combines decades of manufacturing experience with a commitment
+        to quality, consistency, and long-term customer relationships.
+      </p>
+
+      <div class="hero-actions">
+        <Button href="/products">
+          Explore Products
+        </Button>
+
+        <Button href="/contact" variant="secondary">
+          Contact Us
+        </Button>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+.hero{
+  padding:8rem 0;
+}
+
+.hero-content{
+  max-width:760px;
+}
+
+.eyebrow{
+  margin-bottom:1rem;
+
+  color:var(--color-accent);
+
+  font-weight:600;
+
+  letter-spacing:.08em;
+
+  text-transform:uppercase;
+}
+
+.hero h1{
+  margin-bottom:1.5rem;
+
+  font-size:clamp(3rem,6vw,5rem);
+
+  line-height:1.05;
+}
+
+.intro{
+  max-width:650px;
+
+  margin-bottom:2.5rem;
+
+  font-size:1.15rem;
+
+  color:var(--color-text-light);
+}
+
+.hero-actions{
+  display:flex;
+
+  gap:1rem;
+
+  flex-wrap:wrap;
+}
+</style>

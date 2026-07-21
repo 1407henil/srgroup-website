@@ -1,0 +1,68 @@
+---
+import Container from "./Container.astro";
+import Section from "./Section.astro";
+---
+
+<Section>
+  <Container>
+    <div class="about-grid">
+      <div>
+        <p class="eyebrow">About S R Group</p>
+
+        <h2>
+          Nearly three decades of manufacturing excellence.
+        </h2>
+      </div>
+
+      <div>
+        <p>
+          Established in 1997, S R Group has grown into a trusted
+          manufacturing group serving industries across India through
+          consistent quality, reliable supply, and long-term customer
+          relationships.
+        </p>
+
+        <p>
+          Today, S R Industries, S R Plast, and S R Polymers continue
+          to expand the group's manufacturing capabilities while
+          maintaining the values on which the business was founded.
+        </p>
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<style>
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5rem;
+  align-items:start;
+}
+
+.eyebrow{
+  color:var(--color-accent);
+  font-size:.85rem;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:1rem;
+}
+
+.about-grid h2{
+  max-width:520px;
+}
+
+.about-grid p{
+  color:var(--color-text-light);
+}
+
+@media (max-width:900px){
+
+.about-grid{
+grid-template-columns:1fr;
+gap:2rem;
+}
+
+}
+</style>

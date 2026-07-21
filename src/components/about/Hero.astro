@@ -1,0 +1,131 @@
+---
+import Container from "../Container.astro";
+---
+
+<section class="about-hero">
+
+  <Container>
+
+    <p class="eyebrow">
+      ABOUT S R GROUP
+    </p>
+
+    <h1>
+      Built on Trust.<br />
+      Driven by Family Values.
+    </h1>
+
+    <p class="intro">
+      S R Group is a family-owned chemical manufacturing group based in
+      Chhatral GIDC, Gujarat.
+    </p>
+
+    <div class="facts">
+
+      <div class="fact">
+        <span class="value">1997</span>
+        <span class="label">Established</span>
+      </div>
+
+      <div class="fact">
+        <span class="value">Family</span>
+        <span class="label">Owned</span>
+      </div>
+
+      <div class="fact">
+        <span class="value">3</span>
+        <span class="label">Manufacturing Companies</span>
+      </div>
+
+      <div class="fact">
+        <span class="value">India</span>
+        <span class="label">Serving Customers Nationwide</span>
+      </div>
+
+    </div>
+
+  </Container>
+
+</section>
+
+<style>
+
+.about-hero{
+padding:9rem 0 7rem;
+}
+
+.eyebrow{
+font-size:.85rem;
+font-weight:600;
+letter-spacing:.15em;
+text-transform:uppercase;
+color:var(--color-accent);
+margin-bottom:1.5rem;
+}
+
+h1{
+max-width:760px;
+margin-bottom:2rem;
+line-height:1.05;
+}
+
+.intro{
+max-width:700px;
+font-size:1.2rem;
+line-height:1.8;
+color:var(--color-text-light);
+margin-bottom:5rem;
+}
+
+.facts{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:2rem;
+padding-top:2.5rem;
+border-top:1px solid var(--color-border);
+}
+
+.fact{
+display:flex;
+flex-direction:column;
+gap:.5rem;
+}
+
+.value{
+font-family:var(--font-heading);
+font-size:2rem;
+font-weight:600;
+color:var(--color-primary);
+}
+
+.label{
+font-size:.9rem;
+line-height:1.5;
+color:var(--color-text-light);
+}
+
+@media (max-width:900px){
+
+.facts{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media (max-width:640px){
+
+.about-hero{
+padding:7rem 0 5rem;
+}
+
+.facts{
+grid-template-columns:1fr;
+}
+
+.intro{
+font-size:1.1rem;
+}
+
+}
+
+</style>

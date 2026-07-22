@@ -9,31 +9,31 @@ import { navigation } from "../data/navigation";
 
     <div class="header-inner">
 
-    <a
-  href={import.meta.env.BASE_URL}
-  class="logo"
-  aria-label="S R Group Home"
->
+      <a
+        href={import.meta.env.BASE_URL}
+        class="brand"
+        aria-label="S R Group Home"
+      >
 
-  <img
-    src={`${import.meta.env.BASE_URL}assets/logo/sr-monogram.svg`}
-    alt="S R Group"
-    class="logo-icon"
-  />
+        <img
+          src={`${import.meta.env.BASE_URL}assets/logo/sr-monogram.svg`}
+          alt="S R Group"
+          class="brand-logo"
+        />
 
-  <div class="logo-text">
+        <div class="brand-text">
 
-    <span class="wordmark">
-      S R Group
-    </span>
+          <span class="brand-title">
+            S R Group
+          </span>
 
-    <span class="established">
-      Est. 1997
-    </span>
+          <span class="brand-subtitle">
+            EST. 1997
+          </span>
 
-  </div>
+        </div>
 
-</a>
+      </a>
 
       <nav aria-label="Primary Navigation">
 
@@ -41,11 +41,15 @@ import { navigation } from "../data/navigation";
 
           {
             navigation.map((item) => (
+
               <li>
+
                 <a href={`${import.meta.env.BASE_URL}${item.href}`}>
                   {item.label}
                 </a>
+
               </li>
+
             ))
           }
 
@@ -62,123 +66,203 @@ import { navigation } from "../data/navigation";
 <style>
 
 .site-header{
+
 position:sticky;
+
 top:0;
+
 z-index:100;
+
 background:rgba(253,249,243,.96);
+
 backdrop-filter:blur(12px);
+
 border-bottom:1px solid var(--color-border);
+
 }
 
 .header-inner{
+
 display:flex;
-align-items:center;
+
 justify-content:space-between;
+
+align-items:center;
+
 min-height:90px;
+
+gap:3rem;
+
 }
 
-.logo{
+.brand{
+
 display:flex;
-flex-direction:column;
-justify-content:center;
-gap:.15rem;
+
+align-items:center;
+
+gap:14px;
 
 text-decoration:none;
 
-line-height:1;
+flex-shrink:0;
+
 }
 
-.wordmark{
+.brand-logo{
+
+width:50px;
+
+height:50px;
+
+display:block;
+
+object-fit:contain;
+
+}
+
+.brand-text{
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+line-height:1;
+
+}
+
+.brand-title{
 
 font-family:var(--font-logo);
 
-font-size:2.55rem;
+font-size:2.3rem;
 
 font-weight:700;
 
-letter-spacing:.015em;
-
 color:var(--color-accent);
+
+letter-spacing:.015em;
 
 transition:var(--transition);
 
 }
 
-.logo:hover .wordmark{
+.brand:hover .brand-title{
 
 color:#A87F18;
 
 }
 
-.established{
+.brand-subtitle{
+
+margin-top:.35rem;
 
 font-family:var(--font-body);
 
-font-size:.72rem;
+font-size:.68rem;
 
-font-weight:500;
+font-weight:600;
 
-letter-spacing:.22em;
+letter-spacing:.24em;
 
 text-transform:uppercase;
 
-color:#7B7B7B;
-
-margin-left:.12rem;
+color:#777;
 
 }
 
 .nav-list{
+
 display:flex;
+
 gap:2.5rem;
+
 margin:0;
+
 padding:0;
+
 list-style:none;
+
 }
 
 .nav-list a{
+
 position:relative;
+
 font-size:.95rem;
+
 font-weight:500;
+
 transition:var(--transition);
-text-decoration:none;
+
 }
 
 .nav-list a:hover{
+
 color:var(--color-accent);
+
 }
 
 .nav-list a::after{
+
 content:"";
+
 position:absolute;
+
 left:0;
+
 bottom:-6px;
+
 width:0;
+
 height:1px;
+
 background:var(--color-accent);
+
 transition:var(--transition);
+
 }
 
 .nav-list a:hover::after{
+
 width:100%;
+
 }
 
-@media (max-width:768px){
-
-.header-inner{
-min-height:82px;
-}
-
-.wordmark{
-font-size:2rem;
-}
-
-.established{
-font-size:.65rem;
-}
+@media (max-width:900px){
 
 .nav-list{
+
 display:none;
+
+}
+
+.header-inner{
+
+min-height:82px;
+
+}
+
+.brand-logo{
+
+width:42px;
+
+height:42px;
+
+}
+
+.brand-title{
+
+font-size:1.9rem;
+
+}
+
+.brand-subtitle{
+
+font-size:.62rem;
+
 }
 
 }

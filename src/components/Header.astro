@@ -20,7 +20,7 @@ import { navigation } from "../data/navigation";
           {
             navigation.map((item) => (
               <li>
-                <a href={new URL(item.href, import.meta.env.BASE_URL).pathname}>
+                <a href={`${import.meta.env.BASE_URL}${item.href}`}>
                   {item.label}
                 </a>
               </li>

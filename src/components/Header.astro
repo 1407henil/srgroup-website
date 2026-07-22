@@ -9,21 +9,31 @@ import { navigation } from "../data/navigation";
 
     <div class="header-inner">
 
-      <a
-        href={import.meta.env.BASE_URL}
-        class="logo"
-        aria-label="S R Group Home"
-      >
+    <a
+  href={import.meta.env.BASE_URL}
+  class="logo"
+  aria-label="S R Group Home"
+>
 
-        <span class="wordmark">
-          S R Group
-        </span>
+  <img
+    src={`${import.meta.env.BASE_URL}assets/logo/sr-monogram.svg`}
+    alt="S R Group"
+    class="logo-icon"
+  />
 
-        <span class="established">
-          Est. 1997
-        </span>
+  <div class="logo-text">
 
-      </a>
+    <span class="wordmark">
+      S R Group
+    </span>
+
+    <span class="established">
+      Est. 1997
+    </span>
+
+  </div>
+
+</a>
 
       <nav aria-label="Primary Navigation">
 

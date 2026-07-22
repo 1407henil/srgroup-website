@@ -3,7 +3,7 @@
   /* Brand */
 
   --color-primary: #0C0153;
-  --color-accent: #CEA558;
+  --color-accent: #C49A2A;
   --color-bg: #FDF9F3;
 
   --color-white: #ffffff;
@@ -14,6 +14,11 @@
   --color-border: #E6E0D7;
 
   /* Typography */
+
+  --font-logo:
+    "EB Garamond",
+    Georgia,
+    serif;
 
   --font-heading:
     "Cormorant Garamond",

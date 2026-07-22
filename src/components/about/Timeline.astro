@@ -1,152 +1,167 @@
 ---
-import Container from "../Container.astro";
-import Section from "../Section.astro";
+import Container from "../ui/Container.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
 
 const milestones = [
   {
     year: "1997",
     title: "Foundation",
     description:
-      "S R Group was established by the late Shri Ramanbhai Patel together with his sons, Nilesh Patel and Krushi Patel.",
+      "S R Industries was established with a commitment to manufacturing quality chemical products and building lasting customer relationships."
+  },
+  {
+    year: "Growth",
+    title: "Business Expansion",
+    description:
+      "The group expanded its manufacturing capabilities, strengthened infrastructure and diversified into multiple product segments."
   },
   {
     year: "2012",
-    title: "Expansion",
+    title: "S R Polymers",
     description:
-      "S R Polymers was established, expanding the group's manufacturing capabilities into unsaturated polyester resins.",
+      "S R Polymers was established to manufacture Unsaturated Polyester Resins, expanding the group's manufacturing portfolio."
   },
   {
     year: "Today",
-    title: "Growing Forward",
+    title: "S R Group",
     description:
-      "Three manufacturing companies serving customers across India while steadily expanding into international markets.",
-  },
+      "Three manufacturing companies working together with a shared focus on quality, reliability and long-term industrial partnerships."
+  }
 ];
 ---
 
-<Section>
+<section class="timeline">
+
   <Container>
 
-    <div class="section-header">
-      <p class="eyebrow">OUR JOURNEY</p>
+    <SectionHeader
+      eyebrow="OUR JOURNEY"
+      title="Milestones That Shaped Our Growth"
+    />
 
-      <h2>
-        Built over decades.<br />
-        Strengthened through generations.
-      </h2>
-    </div>
-
-    <div class="timeline">
+    <div class="timeline-list">
 
       {
         milestones.map((item) => (
-          <div class="timeline-item">
+          <article class="item">
 
             <div class="year">
               {item.year}
             </div>
 
-            <div class="line"></div>
+            <div class="dot"></div>
 
             <div class="content">
               <h3>{item.title}</h3>
               <p>{item.description}</p>
             </div>
 
-          </div>
+          </article>
         ))
       }
 
     </div>
 
   </Container>
-</Section>
+
+</section>
 
 <style>
 
-.section-header{
-max-width:700px;
-margin-bottom:4rem;
-}
-
-.eyebrow{
-font-size:.85rem;
-font-weight:600;
-letter-spacing:.15em;
-text-transform:uppercase;
-color:var(--color-accent);
-margin-bottom:1rem;
-}
-
 .timeline{
-display:flex;
-flex-direction:column;
+padding:7rem 0;
+background:var(--color-surface);
 }
 
-.timeline-item{
+.timeline-list{
+position:relative;
+margin-top:4rem;
+}
+
+.timeline-list::before{
+content:"";
+position:absolute;
+left:110px;
+top:0;
+bottom:0;
+width:1px;
+background:var(--color-border);
+}
+
+.item{
 display:grid;
-grid-template-columns:140px 40px 1fr;
+grid-template-columns:90px 40px 1fr;
 gap:2rem;
-padding:2.5rem 0;
-}
-
-.timeline-item:not(:last-child){
-border-bottom:1px solid var(--color-border);
+position:relative;
+padding:0 0 3.5rem;
+align-items:start;
 }
 
 .year{
 font-family:var(--font-heading);
-font-size:2rem;
+font-size:1.15rem;
 font-weight:600;
-color:var(--color-primary);
+color:var(--color-accent);
+text-align:right;
+padding-top:.15rem;
 }
 
-.line{
-position:relative;
-}
-
-.line::before{
-content:"";
-position:absolute;
-left:50%;
-top:0;
-bottom:0;
-width:2px;
-background:var(--color-border);
-transform:translateX(-50%);
-}
-
-.line::after{
-content:"";
-position:absolute;
-left:50%;
-top:.4rem;
-width:12px;
-height:12px;
+.dot{
+width:14px;
+height:14px;
 border-radius:50%;
 background:var(--color-accent);
-transform:translateX(-50%);
+margin-top:.35rem;
+position:relative;
+z-index:2;
 }
 
 .content h3{
-margin-bottom:.75rem;
+margin:0 0 .8rem;
+font-size:1.45rem;
+font-weight:600;
 }
 
 .content p{
 margin:0;
+line-height:1.9;
 color:var(--color-text-light);
-line-height:1.8;
+max-width:700px;
+}
+
+.item:last-child{
+padding-bottom:0;
 }
 
 @media(max-width:768px){
 
-.timeline-item{
-grid-template-columns:1fr;
-gap:1rem;
+.timeline{
+padding:5rem 0;
 }
 
-.line{
-display:none;
+.timeline-list::before{
+left:18px;
+}
+
+.item{
+grid-template-columns:20px 1fr;
+gap:1.5rem;
+padding-bottom:2.75rem;
+}
+
+.year{
+grid-column:2;
+text-align:left;
+margin-bottom:.25rem;
+}
+
+.dot{
+grid-row:1 / span 2;
+margin-top:.55rem;
+}
+
+.content{
+grid-column:2;
 }
 
 }

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://1407henil.github.io/srgroup-website/sitemap-index.xml

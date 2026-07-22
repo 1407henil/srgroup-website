@@ -28,8 +28,8 @@ import { navigation } from "../data/navigation";
           </span>
 
           <span class="brand-subtitle">
-            EST. 1997
-          </span>
+  ESTABLISHED&nbsp;1997
+</span>
 
         </div>
 
@@ -89,9 +89,9 @@ justify-content:space-between;
 
 align-items:center;
 
-min-height:90px;
+min-height:82px;
 
-gap:3rem;
+gap:2.5rem;
 
 }
 
@@ -101,7 +101,7 @@ display:flex;
 
 align-items:center;
 
-gap:14px;
+gap:10px;
 
 text-decoration:none;
 
@@ -111,13 +111,17 @@ flex-shrink:0;
 
 .brand-logo{
 
-width:50px;
+width:68px;
 
-height:50px;
+height:68px;
 
 display:block;
 
 object-fit:contain;
+
+flex-shrink:0;
+
+transition:transform .3s ease;
 
 }
 
@@ -155,21 +159,27 @@ color:#A87F18;
 
 }
 
+.brand:hover .brand-logo{
+
+transform:scale(1.03);
+
+}
+
 .brand-subtitle{
 
-margin-top:.35rem;
+margin-top:.32rem;
 
 font-family:var(--font-body);
 
-font-size:.68rem;
+font-size:.63rem;
 
 font-weight:600;
 
-letter-spacing:.24em;
+letter-spacing:.28em;
 
 text-transform:uppercase;
 
-color:#777;
+color:#7A7A7A;
 
 }
 

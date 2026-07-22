@@ -1,112 +1,193 @@
 ---
-import Container from "../Container.astro";
-import Section from "../Section.astro";
+import Container from "../ui/Container.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+
+const companies = [
+  {
+    name: "S R Industries",
+    year: "1997",
+    description:
+      "The foundation of S R Group, manufacturing and supplying industrial chemicals with a strong focus on quality, consistency and dependable service.",
+    focus: [
+      "Industrial Chemicals",
+      "Solvents",
+      "Chemical Processing"
+    ]
+  },
+  {
+    name: "S R Plast",
+    year: "2002",
+    description:
+      "Supporting the group's manufacturing ecosystem with packaging solutions and integrated operations that ensure efficiency and reliability.",
+    focus: [
+      "HDPE Drums",
+      "Industrial Packaging",
+      "Manufacturing Support"
+    ]
+  },
+  {
+    name: "S R Polymers",
+    year: "2012",
+    description:
+      "Dedicated to manufacturing Unsaturated Polyester Resins for composite manufacturers while continually expanding product capabilities.",
+    focus: [
+      "UPR Manufacturing",
+      "Composite Industry",
+      "Resin Solutions"
+    ]
+  }
+];
 ---
 
-<Section>
+<section class="companies">
 
   <Container>
 
-    <div class="section-header">
+    <SectionHeader
+      eyebrow="GROUP COMPANIES"
+      title="Three Companies. One Shared Commitment."
+    />
 
-      <p class="eyebrow">OUR COMPANIES</p>
+    <div class="grid">
 
-      <h2>
-        Three companies.<br />
-        One shared commitment to quality.
-      </h2>
+      {
+        companies.map((company) => (
 
-    </div>
+          <article class="card">
 
-    <div class="companies">
+            <div class="top">
 
-      <article class="company">
+              <span class="year">
+                Since {company.year}
+              </span>
 
-        <h3>S R Industries</h3>
+              <h3>{company.name}</h3>
 
-        <p>
-          Manufacturing industrial chemicals that serve a wide range of
-          industrial applications with a focus on consistent quality and
-          dependable supply.
-        </p>
+            </div>
 
-      </article>
+            <p class="description">
+              {company.description}
+            </p>
 
-      <article class="company">
+            <ul>
 
-        <h3>S R Plast</h3>
+              {
+                company.focus.map((item) => (
+                  <li>{item}</li>
+                ))
+              }
 
-        <p>
-          Producing distilled solvents through carefully controlled processing,
-          delivering reliable performance for industrial customers across India.
-        </p>
+            </ul>
 
-      </article>
+          </article>
 
-      <article class="company">
-
-        <h3>S R Polymers</h3>
-
-        <p>
-          Manufacturing unsaturated polyester resins for composites,
-          construction, marine, automotive and allied industries.
-        </p>
-
-      </article>
+        ))
+      }
 
     </div>
 
   </Container>
 
-</Section>
+</section>
 
 <style>
 
-.section-header{
-max-width:720px;
-margin-bottom:4rem;
-}
-
-.eyebrow{
-font-size:.85rem;
-font-weight:600;
-letter-spacing:.15em;
-text-transform:uppercase;
-color:var(--color-accent);
-margin-bottom:1rem;
-}
-
 .companies{
+padding:7rem 0;
+}
+
+.grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:2rem;
+margin-top:4rem;
 }
 
-.company{
+.card{
+display:flex;
+flex-direction:column;
 padding:2.5rem;
 border:1px solid var(--color-border);
+background:white;
 transition:.3s ease;
+height:100%;
 }
 
-.company:hover{
+.card:hover{
 transform:translateY(-6px);
 border-color:var(--color-accent);
+box-shadow:0 18px 40px rgba(0,0,0,.06);
 }
 
-.company h3{
+.top{
+margin-bottom:1.5rem;
+}
+
+.year{
+display:inline-block;
 margin-bottom:1rem;
+font-size:.82rem;
+letter-spacing:.14em;
+text-transform:uppercase;
+font-weight:600;
+color:var(--color-accent);
 }
 
-.company p{
+.card h3{
 margin:0;
-line-height:1.8;
-color:var(--color-text-light);
+font-size:1.7rem;
+line-height:1.2;
 }
 
-@media(max-width:900px){
+.description{
+margin:0;
+line-height:1.9;
+color:var(--color-text-light);
+flex:1;
+}
+
+ul{
+margin:2rem 0 0;
+padding:0;
+list-style:none;
+display:flex;
+flex-direction:column;
+gap:.8rem;
+}
+
+li{
+display:flex;
+align-items:center;
+gap:.75rem;
+color:var(--color-primary);
+font-weight:500;
+}
+
+li::before{
+content:"";
+width:8px;
+height:8px;
+border-radius:50%;
+background:var(--color-accent);
+flex-shrink:0;
+}
+
+@media(max-width:1024px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
 
 .companies{
-grid-template-columns:1fr;
+padding:5rem 0;
+}
+
+.card{
+padding:2rem;
 }
 
 }

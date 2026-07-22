@@ -1,56 +1,50 @@
 ---
-import Container from "../Container.astro";
-import Section from "../Section.astro";
+import Container from "../ui/Container.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
 ---
 
-<Section>
+<section class="story">
 
   <Container>
 
     <div class="story-grid">
 
-      <div class="heading">
+      <div>
 
-        <p class="eyebrow">OUR STORY</p>
-
-        <h2>
-          Nearly three decades of manufacturing built on trust.
-        </h2>
+        <SectionHeader
+          eyebrow="OUR STORY"
+          title="Three Decades of Manufacturing Excellence"
+        />
 
       </div>
 
       <div class="content">
 
         <p>
-          S R Group is a family-owned chemical manufacturing group based in
-          Chhatral GIDC, Gujarat.
+          Established in <strong>1997</strong>, S R Group began with a clear
+          vision—to manufacture quality chemical products while building
+          relationships founded on trust, consistency and integrity.
         </p>
 
         <p>
-          Established in 1997 by the late Shri Ramanbhai Patel together with
-          his sons, Nilesh Patel and Krushi Patel, the company was founded with
-          a clear vision — to build a business rooted in integrity, dependable
-          products, and lasting customer relationships.
+          Over the years, the group has expanded into multiple manufacturing
+          companies, serving industries across India with dependable products,
+          technical expertise and a customer-first approach.
         </p>
 
         <p>
-          Over the years, S R Group has grown into three manufacturing
-          companies — S R Industries, S R Plast, and S R Polymers —
-          manufacturing industrial chemicals, distilled solvents, and
-          unsaturated polyester resins for customers across India while
-          steadily expanding into international markets.
+          Today, S R Group comprises
+          <strong>S R Industries</strong>,
+          <strong>S R Plast</strong> and
+          <strong>S R Polymers</strong>,
+          combining decades of manufacturing experience with continuous
+          investment in quality, infrastructure and innovation.
         </p>
 
         <p>
-          With a strong foundation built over nearly three decades,
-          Henil Patel and Kushal Patel represent the next generation of
-          S R Group, carrying forward its legacy by combining the company's
-          core values with a modern approach to manufacturing and innovation.
-        </p>
-
-        <p>
-          As the business continues to evolve, the principles on which it was
-          founded remain unchanged.
+          While our operations have grown, our philosophy remains unchanged —
+          deliver consistent quality, honour commitments and build long-term
+          partnerships with every customer.
         </p>
 
       </div>
@@ -59,33 +53,19 @@ import Section from "../Section.astro";
 
   </Container>
 
-</Section>
+</section>
 
 <style>
 
+.story{
+padding:7rem 0;
+}
+
 .story-grid{
 display:grid;
-grid-template-columns:1fr 1.5fr;
+grid-template-columns:1fr 1.35fr;
 gap:6rem;
 align-items:start;
-}
-
-.heading{
-position:sticky;
-top:120px;
-}
-
-.eyebrow{
-font-size:.85rem;
-font-weight:600;
-letter-spacing:.15em;
-text-transform:uppercase;
-color:var(--color-accent);
-margin-bottom:1rem;
-}
-
-.heading h2{
-max-width:360px;
 }
 
 .content{
@@ -95,25 +75,26 @@ gap:2rem;
 }
 
 .content p{
-font-size:1.1rem;
-line-height:1.9;
-color:var(--color-text-light);
 margin:0;
+font-size:1.08rem;
+line-height:1.95;
+color:var(--color-text-light);
 }
 
-@media (max-width:900px){
+.content strong{
+color:var(--color-primary);
+font-weight:600;
+}
+
+@media(max-width:900px){
 
 .story-grid{
 grid-template-columns:1fr;
 gap:3rem;
 }
 
-.heading{
-position:static;
-}
-
-.heading h2{
-max-width:none;
+.story{
+padding:5rem 0;
 }
 
 }

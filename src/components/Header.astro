@@ -56,11 +56,24 @@ min-height:82px;
 }
 
 .logo{
-font-family:var(--font-heading);
-font-size:2rem;
-font-weight:600;
-color:var(--color-primary);
+display:flex;
+align-items:center;
+
+font-family:var(--font-logo);
+font-size:2.45rem;
+font-weight:700;
+line-height:1;
+letter-spacing:.01em;
+
+color:var(--color-accent);
+
 text-decoration:none;
+
+transition:var(--transition);
+}
+
+.logo:hover{
+color:#A87F18;
 }
 
 .nav-list{

@@ -6,41 +6,55 @@ import Footer from "../components/Footer.astro";
 
 export interface Props {
   title?: string;
+  description?: string;
+  canonical?: string;
 }
 
 const {
-  title = "S R Group"
+  title = "S R Group | Chemical Manufacturing Since 1997",
+  description =
+    "S R Group is a family-owned chemical manufacturing group based in Chhatral, Gujarat, serving industrial customers with quality chemical products and manufacturing expertise since 1997.",
+  canonical,
 } = Astro.props;
+
+const site = "https://1407henil.github.io";
+const base = "/srgroup-website";
+const pageUrl = canonical ?? `${site}${base}${Astro.url.pathname}`;
 ---
 
 <!doctype html>
-
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0C0153" />
 
-<meta charset="UTF-8" />
+    <link rel="canonical" href={pageUrl} />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:site_name" content="S R Group" />
 
-<title>{title}</title>
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+  </head>
 
-</head>
+  <body>
+    <Header />
 
-<body>
+    <main>
+      <slot />
+    </main>
 
-<Header />
-
-<main>
-
-<slot />
-
-</main>
-
-<Footer />
-
-</body>
-
+    <Footer />
+  </body>
 </html>

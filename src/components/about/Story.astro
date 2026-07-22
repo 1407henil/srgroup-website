@@ -9,11 +9,11 @@ import SectionHeader from "../ui/SectionHeader.astro";
 
     <div class="story-grid">
 
-      <div>
+      <div class="heading">
 
         <SectionHeader
           eyebrow="OUR STORY"
-          title="Three Decades of Manufacturing Excellence"
+          title="A Legacy Built on Trust, Strengthened Through Generations"
         />
 
       </div>
@@ -21,30 +21,42 @@ import SectionHeader from "../ui/SectionHeader.astro";
       <div class="content">
 
         <p>
-          Established in <strong>1997</strong>, S R Group began with a clear
-          vision—to manufacture quality chemical products while building
-          relationships founded on trust, consistency and integrity.
+          <strong>S R Group</strong> is a family-owned chemical manufacturing
+          group based in <strong>Chhatral GIDC, Gujarat</strong>.
         </p>
 
         <p>
-          Over the years, the group has expanded into multiple manufacturing
-          companies, serving industries across India with dependable products,
-          technical expertise and a customer-first approach.
+          Established in <strong>1997</strong> by the late
+          <strong>Shri Ramanbhai Patel</strong> together with his sons,
+          <strong>Nilesh Patel</strong> and
+          <strong>Krushi Patel</strong>, the company was founded with a clear
+          vision—to build a business rooted in integrity, dependable products,
+          and lasting customer relationships.
         </p>
 
         <p>
-          Today, S R Group comprises
+          Over the years, S R Group has grown into three manufacturing
+          companies —
           <strong>S R Industries</strong>,
           <strong>S R Plast</strong> and
-          <strong>S R Polymers</strong>,
-          combining decades of manufacturing experience with continuous
-          investment in quality, infrastructure and innovation.
+          <strong>S R Polymers</strong> — manufacturing industrial chemicals,
+          distilled solvents and unsaturated polyester resins for customers
+          across India while steadily expanding into international markets.
         </p>
 
         <p>
-          While our operations have grown, our philosophy remains unchanged —
-          deliver consistent quality, honour commitments and build long-term
-          partnerships with every customer.
+          With a strong foundation built over nearly three decades,
+          <strong>Henil Patel</strong> and
+          <strong>Kushal Patel</strong> represent the next generation of
+          S R Group, carrying forward its legacy by combining the company's
+          core values with a modern approach to manufacturing, innovation
+          and long-term business relationships.
+        </p>
+
+        <p>
+          As the business continues to evolve, the principles on which it was
+          founded remain unchanged—manufacturing dependable products, honouring
+          commitments and building partnerships that stand the test of time.
         </p>
 
       </div>
@@ -63,9 +75,14 @@ padding:7rem 0;
 
 .story-grid{
 display:grid;
-grid-template-columns:1fr 1.35fr;
+grid-template-columns:1fr 1.45fr;
 gap:6rem;
 align-items:start;
+}
+
+.heading{
+position:sticky;
+top:7rem;
 }
 
 .content{
@@ -77,7 +94,7 @@ gap:2rem;
 .content p{
 margin:0;
 font-size:1.08rem;
-line-height:1.95;
+line-height:2;
 color:var(--color-text-light);
 }
 
@@ -86,15 +103,19 @@ color:var(--color-primary);
 font-weight:600;
 }
 
-@media(max-width:900px){
+@media (max-width:900px){
+
+.story{
+padding:5rem 0;
+}
 
 .story-grid{
 grid-template-columns:1fr;
 gap:3rem;
 }
 
-.story{
-padding:5rem 0;
+.heading{
+position:static;
 }
 
 }

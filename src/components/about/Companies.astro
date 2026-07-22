@@ -1,42 +1,6 @@
 ---
 import Container from "../ui/Container.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
-
-const companies = [
-  {
-    name: "S R Industries",
-    year: "1997",
-    description:
-      "The foundation of S R Group, manufacturing and supplying industrial chemicals with a strong focus on quality, consistency and dependable service.",
-    focus: [
-      "Industrial Chemicals",
-      "Solvents",
-      "Chemical Processing"
-    ]
-  },
-  {
-    name: "S R Plast",
-    year: "2002",
-    description:
-      "Supporting the group's manufacturing ecosystem with packaging solutions and integrated operations that ensure efficiency and reliability.",
-    focus: [
-      "HDPE Drums",
-      "Industrial Packaging",
-      "Manufacturing Support"
-    ]
-  },
-  {
-    name: "S R Polymers",
-    year: "2012",
-    description:
-      "Dedicated to manufacturing Unsaturated Polyester Resins for composite manufacturers while continually expanding product capabilities.",
-    focus: [
-      "UPR Manufacturing",
-      "Composite Industry",
-      "Resin Solutions"
-    ]
-  }
-];
 ---
 
 <section class="companies">
@@ -44,45 +8,76 @@ const companies = [
   <Container>
 
     <SectionHeader
-      eyebrow="GROUP COMPANIES"
-      title="Three Companies. One Shared Commitment."
+      eyebrow="OUR COMPANIES"
+      title="A Group Built on Complementary Manufacturing Expertise"
     />
 
-    <div class="grid">
+    <div class="companies-grid">
 
-      {
-        companies.map((company) => (
+      <article class="company featured">
 
-          <article class="card">
+        <div class="top">
 
-            <div class="top">
+          <span class="year">Since 1997</span>
 
-              <span class="year">
-                Since {company.year}
-              </span>
+          <h3>S R Industries &amp; S R Plast</h3>
 
-              <h3>{company.name}</h3>
+        </div>
 
-            </div>
+        <p>
+          Established as the foundation of S R Group, S R Industries and
+          S R Plast operate as an integrated manufacturing operation from
+          Chhatral GIDC, Gujarat.
+        </p>
 
-            <p class="description">
-              {company.description}
-            </p>
+        <p>
+          Sharing manufacturing facilities, production infrastructure,
+          technical expertise and product lines, both companies collectively
+          manufacture industrial chemicals and distilled solvents while serving
+          customers across diverse industrial sectors.
+        </p>
 
-            <ul>
+        <ul>
 
-              {
-                company.focus.map((item) => (
-                  <li>{item}</li>
-                ))
-              }
+          <li>Industrial Chemicals</li>
 
-            </ul>
+          <li>Distilled Solvents</li>
 
-          </article>
+          <li>Integrated Manufacturing</li>
 
-        ))
-      }
+          <li>Quality Controlled Production</li>
+
+        </ul>
+
+      </article>
+
+      <article class="company">
+
+        <div class="top">
+
+          <span class="year">Since 2012</span>
+
+          <h3>S R Polymers</h3>
+
+        </div>
+
+        <p>
+          Established to strengthen the group's manufacturing capabilities,
+          S R Polymers specialises in the manufacturing of Unsaturated Polyester
+          Resins for the composites industry.
+        </p>
+
+        <ul>
+
+          <li>UPR Manufacturing</li>
+
+          <li>Composite Industry</li>
+
+          <li>Technical Resin Solutions</li>
+
+        </ul>
+
+      </article>
 
     </div>
 
@@ -96,27 +91,28 @@ const companies = [
 padding:7rem 0;
 }
 
-.grid{
+.companies-grid{
 display:grid;
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:2fr 1fr;
 gap:2rem;
 margin-top:4rem;
 }
 
-.card{
-display:flex;
-flex-direction:column;
-padding:2.5rem;
+.company{
+padding:2.75rem;
 border:1px solid var(--color-border);
-background:white;
+background:#fff;
 transition:.3s ease;
-height:100%;
 }
 
-.card:hover{
+.company:hover{
 transform:translateY(-6px);
+box-shadow:0 20px 45px rgba(0,0,0,.05);
 border-color:var(--color-accent);
-box-shadow:0 18px 40px rgba(0,0,0,.06);
+}
+
+.featured{
+min-height:100%;
 }
 
 .top{
@@ -127,39 +123,35 @@ margin-bottom:1.5rem;
 display:inline-block;
 margin-bottom:1rem;
 font-size:.82rem;
-letter-spacing:.14em;
-text-transform:uppercase;
 font-weight:600;
+letter-spacing:.15em;
+text-transform:uppercase;
 color:var(--color-accent);
 }
 
-.card h3{
+.company h3{
 margin:0;
-font-size:1.7rem;
+font-size:2rem;
 line-height:1.2;
 }
 
-.description{
-margin:0;
+.company p{
 line-height:1.9;
 color:var(--color-text-light);
-flex:1;
 }
 
 ul{
 margin:2rem 0 0;
 padding:0;
 list-style:none;
-display:flex;
-flex-direction:column;
-gap:.8rem;
+display:grid;
+gap:.85rem;
 }
 
 li{
 display:flex;
 align-items:center;
 gap:.75rem;
-color:var(--color-primary);
 font-weight:500;
 }
 
@@ -172,22 +164,14 @@ background:var(--color-accent);
 flex-shrink:0;
 }
 
-@media(max-width:1024px){
-
-.grid{
-grid-template-columns:1fr;
-}
-
-}
-
-@media(max-width:768px){
+@media(max-width:900px){
 
 .companies{
 padding:5rem 0;
 }
 
-.card{
-padding:2rem;
+.companies-grid{
+grid-template-columns:1fr;
 }
 
 }

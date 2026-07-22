@@ -1,0 +1,47 @@
+---
+export interface Props{
+  href:string;
+  variant?:"primary"|"secondary";
+}
+
+const{
+  href,
+  variant="primary"
+}=Astro.props;
+---
+
+<a href={href} class={`button ${variant}`}>
+  <slot />
+</a>
+
+<style>
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:.9rem 1.7rem;
+  border-radius:999px;
+  text-decoration:none;
+  transition:.3s ease;
+  font-weight:600;
+}
+
+.primary{
+  background:#0C0153;
+  color:white;
+}
+
+.primary:hover{
+  background:#1b1475;
+}
+
+.secondary{
+  border:1px solid #0C0153;
+  color:#0C0153;
+}
+
+.secondary:hover{
+  background:#0C0153;
+  color:white;
+}
+</style>

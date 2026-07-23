@@ -28,8 +28,8 @@ import { navigation } from "../data/navigation";
           </span>
 
           <span class="brand-subtitle">
-  ESTABLISHED&nbsp;1997
-</span>
+            ESTABLISHED&nbsp;1997
+          </span>
 
         </div>
 
@@ -66,213 +66,137 @@ import { navigation } from "../data/navigation";
 <style>
 
 .site-header{
-
 position:sticky;
-
 top:0;
-
 z-index:100;
-
 background:rgba(253,249,243,.96);
-
-backdrop-filter:blur(12px);
-
+backdrop-filter:blur(14px);
 border-bottom:1px solid var(--color-border);
-
 }
 
 .header-inner{
-
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
-
-min-height:82px;
-
-gap:2.5rem;
-
+min-height:78px;
+gap:2rem;
 }
 
 .brand{
-
 display:flex;
-
 align-items:center;
-
-gap:10px;
-
+gap:8px;
 text-decoration:none;
-
 flex-shrink:0;
-
+transition:var(--transition);
 }
 
 .brand-logo{
-
-width:74px;
-
-height:74px;
-
+width:64px;
+height:64px;
 display:block;
-
 object-fit:contain;
-
 flex-shrink:0;
-
-transition:transform .3s ease;
-
-}
-
-.brand-text{
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-line-height:1;
-
-}
-
-.brand-title{
-
-font-family:var(--font-logo);
-
-font-size:2.3rem;
-
-font-weight:700;
-
-color:var(--color-accent);
-
-letter-spacing:.015em;
-
-transition:var(--transition);
-
-}
-
-.brand:hover .brand-title{
-
-color:#A87F18;
-
+transition:transform .35s ease;
 }
 
 .brand:hover .brand-logo{
+transform:scale(1.04);
+}
 
-transform:scale(1.03);
+.brand-text{
+display:flex;
+flex-direction:column;
+justify-content:center;
+line-height:1;
+}
 
+.brand-title{
+font-family:var(--font-logo);
+font-size:2.12rem;
+font-weight:700;
+color:var(--color-accent);
+letter-spacing:.01em;
+transition:var(--transition);
+}
+
+.brand:hover .brand-title{
+color:#A87F18;
 }
 
 .brand-subtitle{
-
-margin-top:.32rem;
-
+margin-top:.34rem;
 font-family:var(--font-body);
-
-font-size:.63rem;
-
+font-size:.62rem;
 font-weight:600;
-
-letter-spacing:.28em;
-
+letter-spacing:.30em;
 text-transform:uppercase;
-
 color:#7A7A7A;
-
 }
 
 .nav-list{
-
 display:flex;
-
-gap:2.5rem;
-
+align-items:center;
+gap:2.6rem;
 margin:0;
-
 padding:0;
-
 list-style:none;
-
 }
 
 .nav-list a{
-
 position:relative;
-
-font-size:.95rem;
-
+font-size:1rem;
 font-weight:500;
-
-transition:var(--transition);
-
+color:var(--color-text);
+transition:color .25s ease;
 }
 
 .nav-list a:hover{
-
 color:var(--color-accent);
-
 }
 
 .nav-list a::after{
-
 content:"";
-
 position:absolute;
-
 left:0;
-
-bottom:-6px;
-
+bottom:-7px;
 width:0;
-
-height:1px;
-
+height:2px;
+border-radius:999px;
 background:var(--color-accent);
-
-transition:var(--transition);
-
+transition:width .25s ease;
 }
 
 .nav-list a:hover::after{
-
 width:100%;
-
 }
 
 @media (max-width:900px){
 
 .nav-list{
-
 display:none;
-
 }
 
 .header-inner{
+min-height:72px;
+}
 
-min-height:82px;
-
+.brand{
+gap:8px;
 }
 
 .brand-logo{
-
-width:42px;
-
-height:42px;
-
+width:48px;
+height:48px;
 }
 
 .brand-title{
-
-font-size:1.9rem;
-
+font-size:1.75rem;
 }
 
 .brand-subtitle{
-
-font-size:.62rem;
-
+font-size:.56rem;
+letter-spacing:.24em;
 }
 
 }

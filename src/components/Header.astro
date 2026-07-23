@@ -1,65 +1,63 @@
 ---
-import Container from "./Container.astro";
-import { navigation } from "../data/navigation";
+const base = import.meta.env.BASE_URL;
+const path = Astro.url.pathname.replace(base, "/");
+const isActive = (href: string) =>
+  path === href || path.startsWith(href + "/");
 ---
 
 <header class="site-header">
 
-  <Container>
+  <div class="container">
 
-    <div class="header-inner">
+    <a href={base} class="logo">
+
+      <img
+        src={`${base}assets/logo/sr-group.svg`}
+        alt="S R Group"
+      />
+
+    </a>
+
+    <nav>
 
       <a
-        href={import.meta.env.BASE_URL}
-        class="brand"
-        aria-label="S R Group Home"
+        href={base}
+        class:list={[{ active: path === "/" }]}
       >
-
-        <img
-          src={`${import.meta.env.BASE_URL}assets/logo/1.svg`}
-          alt="S R Group"
-          class="brand-logo"
-        />
-
-        <div class="brand-text">
-
-          <span class="brand-title">
-            S R Group
-          </span>
-
-          <span class="brand-subtitle">
-            ESTABLISHED&nbsp;1997
-          </span>
-
-        </div>
-
+        Home
       </a>
 
-      <nav aria-label="Primary Navigation">
+      <a
+        href={`${base}about`}
+        class:list={[{ active: isActive("/about") }]}
+      >
+        About
+      </a>
 
-        <ul class="nav-list">
+      <a
+        href={`${base}companies`}
+        class:list={[{ active: isActive("/companies") }]}
+      >
+        Companies
+      </a>
 
-          {
-            navigation.map((item) => (
+      <a
+        href={`${base}products`}
+        class:list={[{ active: isActive("/products") }]}
+      >
+        Products
+      </a>
 
-              <li>
+      <a
+        href={`${base}contact`}
+        class:list={[{ active: isActive("/contact") }]}
+      >
+        Contact
+      </a>
 
-                <a href={`${import.meta.env.BASE_URL}${item.href}`}>
-                  {item.label}
-                </a>
+    </nav>
 
-              </li>
-
-            ))
-          }
-
-        </ul>
-
-      </nav>
-
-    </div>
-
-  </Container>
+  </div>
 
 </header>
 
@@ -68,135 +66,78 @@ import { navigation } from "../data/navigation";
 .site-header{
 position:sticky;
 top:0;
-z-index:100;
-background:rgba(253,249,243,.96);
-backdrop-filter:blur(14px);
-border-bottom:1px solid var(--color-border);
+z-index:1000;
+background:rgba(253,249,243,.88);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(196,154,42,.15);
 }
 
-.header-inner{
+.container{
+max-width:1240px;
+margin:auto;
+padding:1.2rem 2rem;
 display:flex;
 justify-content:space-between;
 align-items:center;
-min-height:78px;
-gap:2rem;
 }
 
-.brand{
-display:flex;
-align-items:center;
-gap:8px;
-text-decoration:none;
-flex-shrink:0;
-transition:var(--transition);
-}
-
-.brand-logo{
-width:64px;
-height:64px;
+.logo img{
+height:46px;
 display:block;
-object-fit:contain;
-flex-shrink:0;
-transition:transform .35s ease;
 }
 
-.brand:hover .brand-logo{
-transform:scale(1.04);
-}
-
-.brand-text{
-display:flex;
-flex-direction:column;
-justify-content:center;
-line-height:1;
-}
-
-.brand-title{
-font-family:var(--font-logo);
-font-size:2.12rem;
-font-weight:700;
-color:var(--color-accent);
-letter-spacing:.01em;
-transition:var(--transition);
-}
-
-.brand:hover .brand-title{
-color:#A87F18;
-}
-
-.brand-subtitle{
-margin-top:.34rem;
-font-family:var(--font-body);
-font-size:.62rem;
-font-weight:600;
-letter-spacing:.30em;
-text-transform:uppercase;
-color:#7A7A7A;
-}
-
-.nav-list{
+nav{
 display:flex;
 align-items:center;
-gap:2.6rem;
-margin:0;
-padding:0;
-list-style:none;
+gap:2.25rem;
 }
 
-.nav-list a{
+nav a{
 position:relative;
-font-size:1rem;
+text-decoration:none;
+font-size:.95rem;
 font-weight:500;
-color:var(--color-text);
-transition:color .25s ease;
+letter-spacing:.02em;
+color:var(--color-primary);
+transition:.25s;
 }
 
-.nav-list a:hover{
+nav a:hover{
 color:var(--color-accent);
 }
 
-.nav-list a::after{
+nav a.active{
+color:var(--color-accent);
+}
+
+nav a.active::after{
 content:"";
 position:absolute;
 left:0;
-bottom:-7px;
-width:0;
+right:0;
+bottom:-10px;
 height:2px;
-border-radius:999px;
 background:var(--color-accent);
-transition:width .25s ease;
 }
 
-.nav-list a:hover::after{
-width:100%;
+@media(max-width:900px){
+
+.container{
+padding:1rem 1.25rem;
 }
 
-@media (max-width:900px){
-
-.nav-list{
-display:none;
+.logo img{
+height:38px;
 }
 
-.header-inner{
-min-height:72px;
+nav{
+gap:1.2rem;
+overflow:auto;
 }
 
-.brand{
-gap:8px;
-}
-
-.brand-logo{
-width:48px;
-height:48px;
-}
-
-.brand-title{
-font-size:1.75rem;
-}
-
-.brand-subtitle{
-font-size:.56rem;
-letter-spacing:.24em;
+nav a{
+font-size:.88rem;
+white-space:nowrap;
 }
 
 }

@@ -1,0 +1,258 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Container from "../components/ui/Container.astro";
+---
+
+<BaseLayout
+  title="Contact | S R Group"
+  description="Get in touch with S R Group for industrial chemicals, solvents and resin manufacturing enquiries."
+>
+
+<section class="hero">
+
+  <Container>
+
+    <span class="eyebrow">
+      CONTACT
+    </span>
+
+    <h1>
+      Let's Build Long-Term<br />
+      Business Together
+    </h1>
+
+    <p>
+      Whether you're looking for industrial chemicals, distilled solvents,
+      polyester resins or manufacturing support, our team is ready to assist.
+    </p>
+
+  </Container>
+
+</section>
+
+<section class="contact-section">
+
+  <Container>
+
+    <div class="contact-grid">
+
+      <div class="card">
+
+        <span class="label">Email</span>
+
+        <h2>General Enquiries</h2>
+
+        <a href="mailto:info@srindp.com">
+          info@srindp.com
+        </a>
+
+      </div>
+
+      <div class="card">
+
+        <span class="label">Location</span>
+
+        <h2>Manufacturing Unit</h2>
+
+        <p>
+          Chhatral GIDC<br />
+          Gandhinagar<br />
+          Gujarat, India
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <span class="label">Business</span>
+
+        <h2>Industries Served</h2>
+
+        <ul>
+
+          <li>Chemicals</li>
+          <li>Engineering</li>
+          <li>Automotive</li>
+          <li>Composites</li>
+          <li>Manufacturing</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </Container>
+
+</section>
+
+<section class="cta">
+
+  <Container>
+
+    <h2>
+      Ready to discuss your requirement?
+    </h2>
+
+    <p>
+      We look forward to understanding your application and providing the
+      right manufacturing solution.
+    </p>
+
+    <a
+      href="mailto:info@srindp.com"
+      class="button"
+    >
+      Email Us
+    </a>
+
+  </Container>
+
+</section>
+
+</BaseLayout>
+
+<style>
+
+.hero{
+padding:8rem 0 6rem;
+text-align:center;
+}
+
+.eyebrow{
+display:inline-block;
+margin-bottom:1rem;
+font-size:.8rem;
+font-weight:600;
+letter-spacing:.28em;
+text-transform:uppercase;
+color:var(--color-accent);
+}
+
+.hero h1{
+margin:0;
+font-family:var(--font-heading);
+font-size:clamp(3rem,5vw,4.6rem);
+line-height:1.1;
+color:var(--color-primary);
+}
+
+.hero p{
+max-width:760px;
+margin:2rem auto 0;
+font-size:1.15rem;
+line-height:2;
+color:var(--color-text-light);
+}
+
+.contact-section{
+padding:2rem 0 7rem;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:2rem;
+}
+
+.card{
+padding:3rem;
+background:#fff;
+border:1px solid var(--color-border);
+border-radius:20px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-4px);
+box-shadow:0 20px 45px rgba(0,0,0,.05);
+}
+
+.label{
+display:inline-block;
+margin-bottom:1rem;
+font-size:.75rem;
+letter-spacing:.24em;
+text-transform:uppercase;
+font-weight:600;
+color:var(--color-accent);
+}
+
+.card h2{
+margin:0 0 1.5rem;
+font-size:1.8rem;
+font-family:var(--font-heading);
+color:var(--color-primary);
+}
+
+.card p,
+.card a,
+.card li{
+line-height:2;
+color:var(--color-text-light);
+text-decoration:none;
+}
+
+.card ul{
+margin:0;
+padding-left:1.2rem;
+}
+
+.cta{
+padding:0 0 8rem;
+text-align:center;
+}
+
+.cta h2{
+margin:0;
+font-size:2.6rem;
+font-family:var(--font-heading);
+color:var(--color-primary);
+}
+
+.cta p{
+max-width:650px;
+margin:1.5rem auto 2.5rem;
+line-height:1.9;
+color:var(--color-text-light);
+}
+
+.button{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:1rem 2.25rem;
+border-radius:999px;
+border:1px solid var(--color-accent);
+text-decoration:none;
+font-weight:600;
+color:var(--color-primary);
+transition:.3s;
+}
+
+.button:hover{
+background:var(--color-accent);
+color:#fff;
+}
+
+@media(max-width:900px){
+
+.hero{
+padding:6rem 0 5rem;
+}
+
+.contact-grid{
+grid-template-columns:1fr;
+}
+
+.card{
+padding:2.25rem;
+}
+
+.cta h2{
+font-size:2rem;
+}
+
+}
+
+</style>

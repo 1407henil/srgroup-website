@@ -1,20 +1,346 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-import Hero from "../components/about/Hero.astro";
-import Story from "../components/about/Story.astro";
-import Timeline from "../components/about/Timeline.astro";
-import Companies from "../components/about/Companies.astro";
-import Values from "../components/about/Values.astro";
+import Container from "../components/ui/Container.astro";
 ---
 
 <BaseLayout
   title="About S R Group"
-  description="Learn about S R Group, a family-owned chemical manufacturing group established in 1997, serving industries across India."
+  description="Over two decades of chemical manufacturing excellence."
 >
-  <Hero />
-  <Story />
-  <Timeline />
-  <Companies />
-  <Values />
+
+<section class="hero">
+
+  <Container>
+
+    <span class="eyebrow">
+      ABOUT S R GROUP
+    </span>
+
+    <h1>
+      Manufacturing Trust.<br />
+      Delivering Quality.
+    </h1>
+
+    <p>
+      S R Group is a family-owned chemical manufacturing group headquartered in
+      Chhatral GIDC, Gujarat. Since 1997, we have focused on building long-term
+      industrial relationships through dependable products, ethical business
+      practices and consistent manufacturing quality.
+    </p>
+
+  </Container>
+
+</section>
+
+<section class="story">
+
+  <Container>
+
+    <div class="grid">
+
+      <div>
+
+        <span class="section-title">
+          OUR STORY
+        </span>
+
+        <h2>
+          More Than Products.<br />
+          We Build Partnerships.
+        </h2>
+
+      </div>
+
+      <div>
+
+        <p>
+          Every product that leaves our manufacturing facility represents our
+          commitment to quality, reliability and customer satisfaction.
+          Through continuous improvement and responsible manufacturing, we have
+          earned the trust of customers across diverse industries.
+        </p>
+
+        <p>
+          Today, S R Group continues expanding its manufacturing capabilities
+          while preserving the values on which the company was founded —
+          integrity, consistency and long-term relationships.
+        </p>
+
+      </div>
+
+    </div>
+
+  </Container>
+
+</section>
+
+<section class="values">
+
+  <Container>
+
+    <span class="section-title">
+      OUR VALUES
+    </span>
+
+    <h2>
+      Principles That Guide Every Decision
+    </h2>
+
+    <div class="cards">
+
+      <article>
+
+        <h3>
+          Quality First
+        </h3>
+
+        <p>
+          Every manufacturing process is designed to maintain dependable and
+          consistent product quality.
+        </p>
+
+      </article>
+
+      <article>
+
+        <h3>
+          Customer Commitment
+        </h3>
+
+        <p>
+          Long-term partnerships are built through reliability, transparency
+          and responsive service.
+        </p>
+
+      </article>
+
+      <article>
+
+        <h3>
+          Continuous Improvement
+        </h3>
+
+        <p>
+          We continuously invest in better manufacturing practices and process
+          improvements.
+        </p>
+
+      </article>
+
+      <article>
+
+        <h3>
+          Responsible Manufacturing
+        </h3>
+
+        <p>
+          Sustainable growth begins with responsible operations and ethical
+          business values.
+        </p>
+
+      </article>
+
+    </div>
+
+  </Container>
+
+</section>
+
+<section class="numbers">
+
+  <Container>
+
+    <div class="stats">
+
+      <div>
+
+        <strong>1997</strong>
+
+        <span>
+          Established
+        </span>
+
+      </div>
+
+      <div>
+
+        <strong>25+</strong>
+
+        <span>
+          Years of Experience
+        </span>
+
+      </div>
+
+      <div>
+
+        <strong>3</strong>
+
+        <span>
+          Manufacturing Companies
+        </span>
+
+      </div>
+
+      <div>
+
+        <strong>B2B</strong>
+
+        <span>
+          Industrial Focus
+        </span>
+
+      </div>
+
+    </div>
+
+  </Container>
+
+</section>
+
 </BaseLayout>
+
+<style>
+
+.hero{
+padding:8rem 0 6rem;
+text-align:center;
+}
+
+.eyebrow{
+display:inline-block;
+margin-bottom:1rem;
+font-size:.78rem;
+letter-spacing:.28em;
+text-transform:uppercase;
+font-weight:600;
+color:var(--color-accent);
+}
+
+.hero h1{
+margin:0;
+font-family:var(--font-heading);
+font-size:clamp(3rem,5vw,4.8rem);
+line-height:1.08;
+color:var(--color-primary);
+}
+
+.hero p{
+max-width:760px;
+margin:2rem auto 0;
+font-size:1.15rem;
+line-height:2;
+color:var(--color-text-light);
+}
+
+.story,
+.values,
+.numbers{
+padding:6rem 0;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:5rem;
+align-items:start;
+}
+
+.section-title{
+display:inline-block;
+margin-bottom:1rem;
+font-size:.75rem;
+letter-spacing:.28em;
+text-transform:uppercase;
+font-weight:600;
+color:var(--color-accent);
+}
+
+.story h2,
+.values h2{
+margin:0;
+font-family:var(--font-heading);
+font-size:3rem;
+line-height:1.2;
+color:var(--color-primary);
+}
+
+.story p{
+line-height:2;
+color:var(--color-text-light);
+margin-bottom:2rem;
+}
+
+.cards{
+margin-top:4rem;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:2rem;
+}
+
+.cards article{
+padding:2.5rem;
+border:1px solid var(--color-border);
+border-radius:20px;
+background:#fff;
+transition:.3s;
+}
+
+.cards article:hover{
+transform:translateY(-5px);
+box-shadow:0 18px 40px rgba(0,0,0,.05);
+}
+
+.cards h3{
+margin:0 0 1rem;
+font-family:var(--font-heading);
+font-size:1.8rem;
+color:var(--color-primary);
+}
+
+.cards p{
+margin:0;
+line-height:1.9;
+color:var(--color-text-light);
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:2rem;
+text-align:center;
+}
+
+.stats strong{
+display:block;
+font-size:3rem;
+font-family:var(--font-heading);
+color:var(--color-primary);
+}
+
+.stats span{
+display:block;
+margin-top:.75rem;
+color:var(--color-text-light);
+}
+
+@media(max-width:900px){
+
+.hero{
+padding:6rem 0 5rem;
+}
+
+.grid,
+.cards,
+.stats{
+grid-template-columns:1fr;
+}
+
+.story h2,
+.values h2{
+font-size:2.2rem;
+}
+
+}
+
+</style>

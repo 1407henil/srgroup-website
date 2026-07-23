@@ -126,18 +126,19 @@ border-top:1px solid rgba(196,154,42,.28);
 
 .footer-main{
 display:grid;
-grid-template-columns:1.35fr 2fr;
-gap:7rem;
+grid-template-columns:1fr 2fr;
+gap:5rem;
 align-items:start;
 }
 
 .footer-brand{
 display:flex;
 flex-direction:column;
+justify-content:center;
 }
 
 .footer-logo{
-width:360px;
+width:420px;
 max-width:100%;
 height:auto;
 display:block;
@@ -152,8 +153,8 @@ white-space:nowrap;
 
 .footer-columns{
 display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:4rem;
+grid-template-columns:repeat(3,minmax(170px,1fr));
+gap:3rem;
 }
 
 .footer-column h4{

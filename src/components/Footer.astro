@@ -6,7 +6,7 @@ import Container from "./Container.astro";
 
   <Container>
 
-    <div class="footer-top">
+    <div class="footer-main">
 
       <div class="footer-brand">
 
@@ -22,47 +22,74 @@ import Container from "./Container.astro";
 
       </div>
 
-      <div class="footer-links">
+      <div class="footer-columns">
 
-        <div>
+        <div class="footer-column">
 
           <h4>Companies</h4>
 
           <ul>
 
-            <li><a href={`${import.meta.env.BASE_URL}companies/industries`}>S R Industries</a></li>
-            <li><a href={`${import.meta.env.BASE_URL}companies/industries`}>S R Plast</a></li>
-            <li><a href={`${import.meta.env.BASE_URL}companies/polymers`}>S R Polymers</a></li>
+            <li>
+              <a href={`${import.meta.env.BASE_URL}companies/industries`}>
+                S R Industries
+              </a>
+            </li>
+
+            <li>
+              <a href={`${import.meta.env.BASE_URL}companies/industries`}>
+                S R Plast
+              </a>
+            </li>
+
+            <li>
+              <a href={`${import.meta.env.BASE_URL}companies/polymers`}>
+                S R Polymers
+              </a>
+            </li>
 
           </ul>
 
         </div>
 
-        <div>
+        <div class="footer-column">
 
-          <h4>Quick Links</h4>
+          <h4>Explore</h4>
 
           <ul>
 
-            <li><a href={import.meta.env.BASE_URL}>Home</a></li>
-            <li><a href={`${import.meta.env.BASE_URL}about`}>About</a></li>
-            <li><a href={`${import.meta.env.BASE_URL}companies`}>Companies</a></li>
             <li><a href={`${import.meta.env.BASE_URL}products`}>Products</a></li>
-            <li><a href={`${import.meta.env.BASE_URL}contact`}>Contact</a></li>
+            <li><a href={`${import.meta.env.BASE_URL}industries`}>Industries Served</a></li>
+            <li><a href={`${import.meta.env.BASE_URL}infrastructure`}>Infrastructure</a></li>
+            <li><a href={`${import.meta.env.BASE_URL}quality`}>Quality Assurance</a></li>
+            <li><a href={`${import.meta.env.BASE_URL}downloads`}>Downloads</a></li>
 
           </ul>
 
         </div>
 
-        <div>
+        <div class="footer-column">
 
           <h4>Contact</h4>
 
           <ul class="contact-list">
 
-            <li>Chhatral GIDC,<br>Gandhinagar, Gujarat, India</li>
-            <li>info@srgroup.in</li>
-            <li>+91 XXXXX XXXXX</li>
+            <li>
+              <a href="mailto:info@srindp.com">
+                info@srindp.com
+              </a>
+            </li>
+
+            <li>
+              Chhatral GIDC,<br>
+              Gandhinagar, Gujarat
+            </li>
+
+            <li>
+              <a href={`${import.meta.env.BASE_URL}contact`}>
+                Get in touch →
+              </a>
+            </li>
 
           </ul>
 
@@ -74,9 +101,13 @@ import Container from "./Container.astro";
 
     <div class="footer-bottom">
 
-      <p>
-        © {new Date().getFullYear()} S R Group. All Rights Reserved.
-      </p>
+      <span>
+        © {new Date().getFullYear()} S R Group. All rights reserved.
+      </span>
+
+      <span>
+        S R Industries &nbsp;•&nbsp; S R Plast &nbsp;•&nbsp; S R Polymers
+      </span>
 
     </div>
 
@@ -88,107 +119,127 @@ import Container from "./Container.astro";
 
 .site-footer{
 margin-top:6rem;
-background:#0C0153;
-color:#F5F5F5;
+padding:5.5rem 0 2rem;
+background:var(--color-bg);
+border-top:1px solid rgba(196,154,42,.28);
 }
 
-.footer-top{
+.footer-main{
 display:grid;
-grid-template-columns:1.25fr 2fr;
-gap:5rem;
-padding:5rem 0 3rem;
+grid-template-columns:1.35fr 2fr;
+gap:7rem;
+align-items:start;
 }
 
 .footer-brand{
 display:flex;
 flex-direction:column;
-gap:1.75rem;
 }
 
 .footer-logo{
-width:260px;
+width:360px;
 max-width:100%;
 height:auto;
+display:block;
 }
 
 .footer-tagline{
-margin:0;
+margin:2rem 0 0;
 font-size:1rem;
-line-height:1.8;
-color:rgba(255,255,255,.78);
-max-width:320px;
+color:var(--color-text-light);
+white-space:nowrap;
 }
 
-.footer-links{
+.footer-columns{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:3rem;
+gap:4rem;
 }
 
-.footer-links h4{
-margin:0 0 1.4rem;
-font-size:.95rem;
+.footer-column h4{
+display:flex;
+align-items:center;
+gap:.65rem;
+margin:0 0 1.8rem;
+font-size:.78rem;
 font-weight:600;
-letter-spacing:.08em;
+letter-spacing:.32em;
 text-transform:uppercase;
-color:#C49A2A;
+color:var(--color-accent);
 }
 
-.footer-links ul{
+.footer-column h4::before{
+content:"";
+width:28px;
+height:1px;
+background:var(--color-accent);
+opacity:.7;
+}
+
+.footer-column ul{
 margin:0;
 padding:0;
 list-style:none;
 display:flex;
 flex-direction:column;
-gap:.9rem;
+gap:1rem;
 }
 
-.footer-links a{
-color:rgba(255,255,255,.82);
-text-decoration:none;
-transition:.25s;
-}
-
-.footer-links a:hover{
-color:#C49A2A;
-}
-
-.contact-list li{
-color:rgba(255,255,255,.82);
+.footer-column li{
+font-size:1.08rem;
 line-height:1.8;
+color:var(--color-text);
+}
+
+.footer-column a{
+color:inherit;
+text-decoration:none;
+transition:.25s ease;
+}
+
+.footer-column a:hover{
+color:var(--color-accent);
+}
+
+.contact-list{
+gap:1.35rem;
 }
 
 .footer-bottom{
-padding:1.6rem 0;
-border-top:1px solid rgba(255,255,255,.12);
+margin-top:4.5rem;
+padding-top:1.5rem;
+border-top:1px dashed rgba(196,154,42,.45);
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:2rem;
+font-size:.92rem;
+color:#6D7090;
 }
 
-.footer-bottom p{
-margin:0;
-text-align:center;
-font-size:.9rem;
-color:rgba(255,255,255,.62);
+@media (max-width:1000px){
+
+.footer-main{
+grid-template-columns:1fr;
+gap:4rem;
 }
 
-@media (max-width:900px){
-
-.footer-top{
+.footer-columns{
 grid-template-columns:1fr;
 gap:3rem;
-padding:4rem 0 2.5rem;
 }
 
-.footer-links{
-grid-template-columns:1fr;
-gap:2.5rem;
+.footer-tagline{
+white-space:normal;
+}
+
+.footer-bottom{
+flex-direction:column;
+align-items:flex-start;
 }
 
 .footer-logo{
-width:220px;
-}
-
-.footer-bottom p{
-text-align:left;
+width:300px;
 }
 
 }

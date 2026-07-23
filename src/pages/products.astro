@@ -1,199 +1,175 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Container from "../components/ui/Container.astro";
----
-
 const products = [
   {
-    category: "Industrial Solvent",
-    title: "SRSolv",
+    name: "SRSolv",
+    category: "Industrial Cleaning Solvent",
     description:
-      "High-performance industrial degreasing solvent developed as an economical alternative for heavy-duty metal cleaning applications.",
+      "Economical industrial cleaning solvent developed for heavy-duty metal degreasing and component cleaning.",
     applications: [
       "Metal Degreasing",
       "Bearing Cleaning",
-      "Machine Components",
-      "Surface Preparation"
-    ]
+      "Machine Parts",
+      "Pre-paint Cleaning"
+    ],
+    packaging: "40 kg Carboy • 300 kg HDPE Drum"
   },
   {
+    name: "Distilled Mono Ethylene Glycol",
     category: "Industrial Chemical",
-    title: "Distilled Mono Ethylene Glycol (MEG)",
     description:
-      "Purified Mono Ethylene Glycol manufactured with consistent quality for industrial processing applications.",
+      "Purified Mono Ethylene Glycol manufactured for industrial processing applications.",
     applications: [
       "Chemical Processing",
       "Industrial Manufacturing",
-      "Cooling Systems",
-      "General Industrial Use"
-    ]
+      "Heat Transfer",
+      "General Industry"
+    ],
+    packaging: "230 kg Drum • Bulk"
   },
   {
+    name: "Distilled Diethylene Glycol",
     category: "Industrial Chemical",
-    title: "Distilled Diethylene Glycol (DEG)",
     description:
-      "High-quality distilled Diethylene Glycol manufactured for customers requiring reliable purity and consistent performance.",
+      "Consistent quality Diethylene Glycol supplied for industrial manufacturing requirements.",
     applications: [
       "Chemical Manufacturing",
       "Industrial Processing",
       "Solvent Applications",
-      "Process Industries"
-    ]
+      "Process Industry"
+    ],
+    packaging: "230 kg Drum • Bulk"
   },
   {
+    name: "Unsaturated Polyester Resin",
     category: "Composite Resin",
-    title: "Unsaturated Polyester Resin",
     description:
-      "Premium resin manufactured for FRP and composite industries with dependable quality and batch consistency.",
+      "General purpose orthophthalic polyester resin for FRP and composite industries.",
     applications: [
       "FRP Products",
       "Composite Components",
       "Industrial Moulding",
-      "General Composites"
-    ]
+      "General Fabrication"
+    ],
+    packaging: "HDPE Drum"
   }
 ];
 ---
-
-<BaseLayout
-  title="Products | S R Group"
-  description="Industrial chemical products manufactured by S R Group."
->
-
-<section class="hero">
-
-  <Container>
-
-    <span class="eyebrow">
-      PRODUCTS
-    </span>
-
-    <h1>
-      Industrial Chemical<br />
-      Product Portfolio
-    </h1>
-
-    <p>
-      Reliable chemical manufacturing backed by decades of industrial
-      experience and consistent quality.
-    </p>
-
-  </Container>
-
-</section>
 
 <section class="products">
 
   <Container>
 
-    {
-      products.map((product) => (
+    <div class="heading">
 
-        <article class="card">
+      <span>OUR PRODUCTS</span>
 
-          <span class="category">
-            {product.category}
-          </span>
+      <h2>
+        Products Engineered for Industrial Performance
+      </h2>
 
-          <h2>
-            {product.title}
-          </h2>
+    </div>
 
-          <p>
-            {product.description}
-          </p>
+    <div class="grid">
 
-          <div class="divider"></div>
+      {
+        products.map((product) => (
 
-          <h3>
-            Applications
-          </h3>
+          <article class="card">
 
-          <ul>
+            <div class="top">
 
-            {product.applications.map((item) => (
+              <span class="category">
+                {product.category}
+              </span>
 
-              <li>{item}</li>
+              <h3>
+                {product.name}
+              </h3>
 
-            ))}
+              <p>
+                {product.description}
+              </p>
 
-          </ul>
+            </div>
 
-        </article>
+            <div class="middle">
 
-      ))
-    }
+              <h4>
+                Applications
+              </h4>
+
+              <ul>
+
+                {
+                  product.applications.map((item) => (
+
+                    <li>{item}</li>
+
+                  ))
+                }
+
+              </ul>
+
+            </div>
+
+            <div class="bottom">
+
+              <small>
+                Packaging
+              </small>
+
+              <strong>
+                {product.packaging}
+              </strong>
+
+            </div>
+
+          </article>
+
+        ))
+      }
+
+    </div>
 
   </Container>
 
 </section>
-
-<section class="cta">
-
-  <Container>
-
-    <h2>
-      Looking for product specifications?
-    </h2>
-
-    <p>
-      Contact our team for technical data sheets, packaging information and commercial enquiries.
-    </p>
-
-    <a
-      href={`${import.meta.env.BASE_URL}contact`}
-      class="button"
-    >
-      Contact Us
-    </a>
-
-  </Container>
-
-</section>
-
-</BaseLayout>
 
 <style>
 
-.hero{
-padding:8rem 0 6rem;
+.heading{
+margin-bottom:4rem;
 text-align:center;
 }
 
-.eyebrow{
+.heading span{
 display:inline-block;
 margin-bottom:1rem;
-font-size:.8rem;
+font-size:.75rem;
 letter-spacing:.28em;
 text-transform:uppercase;
 font-weight:600;
 color:var(--color-accent);
 }
 
-.hero h1{
+.heading h2{
 margin:0;
 font-family:var(--font-heading);
-font-size:clamp(3rem,5vw,4.6rem);
-line-height:1.1;
+font-size:clamp(2.5rem,5vw,4rem);
 color:var(--color-primary);
 }
 
-.hero p{
-max-width:720px;
-margin:2rem auto 0;
-font-size:1.15rem;
-line-height:2;
-color:var(--color-text-light);
-}
-
-.products{
-padding:2rem 0 7rem;
+.grid{
 display:grid;
+grid-template-columns:repeat(2,1fr);
 gap:2rem;
 }
 
 .card{
-padding:3.5rem;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+padding:3rem;
 background:#fff;
 border:1px solid var(--color-border);
 border-radius:22px;
@@ -201,127 +177,96 @@ transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-4px);
-box-shadow:0 18px 40px rgba(0,0,0,.05);
+transform:translateY(-6px);
+box-shadow:0 24px 50px rgba(0,0,0,.05);
 }
 
 .category{
-display:inline-block;
-margin-bottom:1rem;
-font-size:.75rem;
+font-size:.72rem;
+font-weight:600;
 letter-spacing:.24em;
 text-transform:uppercase;
-font-weight:600;
 color:var(--color-accent);
 }
 
-.card h2{
-margin:0;
-font-size:2.1rem;
+.card h3{
+margin:1rem 0;
 font-family:var(--font-heading);
+font-size:2rem;
 color:var(--color-primary);
 }
 
 .card p{
-margin:1.5rem 0;
-line-height:2;
-max-width:760px;
-color:var(--color-text-light);
-}
-
-.divider{
-width:70px;
-height:1px;
-background:var(--color-accent);
-margin:2rem 0;
-}
-
-.card h3{
-margin:0 0 1rem;
-font-size:1rem;
-letter-spacing:.15em;
-text-transform:uppercase;
-color:var(--color-primary);
-}
-
-.card ul{
-margin:0;
-padding:0;
-list-style:none;
-display:grid;
-grid-template-columns:repeat(2,minmax(220px,1fr));
-gap:1rem;
-}
-
-.card li{
-position:relative;
-padding-left:1.25rem;
-}
-
-.card li::before{
-content:"";
-position:absolute;
-left:0;
-top:.72rem;
-width:6px;
-height:6px;
-border-radius:50%;
-background:var(--color-accent);
-}
-
-.cta{
-padding:0 0 8rem;
-text-align:center;
-}
-
-.cta h2{
-margin:0;
-font-size:2.5rem;
-font-family:var(--font-heading);
-color:var(--color-primary);
-}
-
-.cta p{
-max-width:640px;
-margin:1.5rem auto 2.5rem;
 line-height:1.9;
 color:var(--color-text-light);
 }
 
-.button{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:1rem 2.4rem;
-border-radius:999px;
-border:1px solid var(--color-accent);
-text-decoration:none;
-font-weight:600;
-color:var(--color-primary);
-transition:.3s;
+.middle{
+margin:2rem 0;
 }
 
-.button:hover{
+.middle h4{
+margin-bottom:1rem;
+font-size:.85rem;
+letter-spacing:.18em;
+text-transform:uppercase;
+color:var(--color-primary);
+}
+
+.middle ul{
+margin:0;
+padding:0;
+list-style:none;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:.8rem;
+}
+
+.middle li{
+position:relative;
+padding-left:1rem;
+}
+
+.middle li::before{
+content:"";
+position:absolute;
+left:0;
+top:.65rem;
+width:5px;
+height:5px;
+border-radius:50%;
 background:var(--color-accent);
-color:#fff;
+}
+
+.bottom{
+padding-top:1.75rem;
+border-top:1px solid var(--color-border);
+}
+
+.bottom small{
+display:block;
+margin-bottom:.5rem;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--color-accent);
+}
+
+.bottom strong{
+font-weight:600;
+color:var(--color-primary);
 }
 
 @media(max-width:900px){
 
-.hero{
-padding:6rem 0 5rem;
+.grid{
+grid-template-columns:1fr;
 }
 
 .card{
-padding:2.25rem;
+padding:2rem;
 }
 
-.card h2,
-.cta h2{
-font-size:2rem;
-}
-
-.card ul{
+.middle ul{
 grid-template-columns:1fr;
 }
 

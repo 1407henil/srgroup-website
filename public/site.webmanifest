@@ -1,0 +1,16 @@
+{
+  "name": "S R Group",
+  "short_name": "SR Group",
+  "description": "Industrial Chemical Manufacturers",
+  "start_url": "/srgroup-website/",
+  "display": "standalone",
+  "background_color": "#FDF9F3",
+  "theme_color": "#0C0153",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

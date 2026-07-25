@@ -83,6 +83,55 @@ import Container from "../components/ui/Container.astro";
   </Container>
 
 </section>
+
+<section class="companies">
+
+  <Container>
+
+    <span class="section-title">
+      OUR COMPANIES
+    </span>
+
+    <h2>
+      Three Companies.<br />
+      One Shared Commitment.
+    </h2>
+
+    <div class="company-grid">
+
+      <article>
+        <h3>S R Industries</h3>
+        <p>
+          Established in 1997, S R Industries forms the foundation of the
+          Group's manufacturing journey, specializing in industrial chemicals
+          and solvent processing with a commitment to consistent quality and
+          customer trust.
+        </p>
+      </article>
+
+      <article>
+        <h3>S R Plast</h3>
+        <p>
+          Focused on chemical processing and value-added industrial products,
+          S R Plast complements the Group's manufacturing capabilities through
+          efficient production and dependable service.
+        </p>
+      </article>
+
+      <article>
+        <h3>S R Polymers</h3>
+        <p>
+          Dedicated to the manufacturing of Unsaturated Polyester Resins,
+          S R Polymers serves diverse industrial applications with an emphasis
+          on quality, innovation and long-term partnerships.
+        </p>
+      </article>
+
+    </div>
+
+  </Container>
+
+</section>
 </BaseLayout>
 
 <style>
@@ -161,5 +210,48 @@ font-size:2.2rem;
 }
 
 }
+.companies{
+padding:6rem 0;
+}
 
+.company-grid{
+margin-top:4rem;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:2rem;
+}
+
+.company-grid article{
+padding:2.5rem;
+border:1px solid var(--color-border);
+border-radius:18px;
+transition:.3s;
+background:#fff;
+}
+
+.company-grid article:hover{
+transform:translateY(-6px);
+box-shadow:0 16px 40px rgba(0,0,0,.06);
+}
+
+.company-grid h3{
+margin:0 0 1rem;
+font-size:1.8rem;
+color:var(--color-primary);
+}
+
+.company-grid p{
+margin:0;
+line-height:1.9;
+}
+
+@media(max-width:900px){
+
+.company-grid{
+grid-template-columns:1fr;
+}
+
+}
 </style>
+
+

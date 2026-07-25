@@ -11,7 +11,7 @@ import Container from "./Container.astro";
       <div class="footer-brand">
 
         <img
-          src={`${import.meta.env.BASE_URL}assets/logo/sr-group.svg`}
+          src={new URL("/assets/logo/sr-group.svg", Astro.url).pathname}
           alt="S R Group"
           class="footer-logo"
         />

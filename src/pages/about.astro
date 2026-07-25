@@ -1,13 +1,166 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
+import Container from "../components/ui/Container.astro";
 ---
 
 <BaseLayout
   title="About S R Group"
-  description="About S R Group"
+  description="Learn about the legacy, leadership and manufacturing excellence of S R Group."
 >
 
-  <h1>About Page Under Restoration</h1>
+<section class="hero">
+
+  <Container>
+
+    <span class="eyebrow">
+      ABOUT S R GROUP
+    </span>
+
+    <h1>
+      A Legacy Built on Trust,<br />
+      Strengthened Through Generations.
+    </h1>
+
+    <p>
+      Since 1997, S R Group has grown from a family vision into a trusted
+      chemical manufacturing group, serving industries through quality,
+      integrity and long-term relationships.
+    </p>
+
+  </Container>
+
+</section>
+
+<section class="story">
+
+  <Container>
+
+    <div class="story-grid">
+
+      <div>
+
+        <span class="section-title">
+          OUR STORY
+        </span>
+
+        <h2>
+          Building a Legacy Since 1997
+        </h2>
+
+      </div>
+
+      <div>
+
+        <p>
+          Established in <strong>1997</strong> by the late
+          <strong>Shri Ramanbhai Patel</strong>, together with
+          <strong>Nilesh Patel</strong> and
+          <strong>Krushi Patel</strong>, S R Group was founded on a simple
+          principle — manufacture dependable products while building lasting
+          customer relationships.
+        </p>
+
+        <p>
+          Over the decades, the Group expanded into
+          <strong>S R Industries</strong>,
+          <strong>S R Plast</strong> and
+          <strong>S R Polymers</strong>, serving customers across multiple
+          industrial sectors through quality-focused manufacturing.
+        </p>
+
+        <p>
+          Today,
+          <strong>Henil Patel</strong> and
+          <strong>Kushal Patel</strong> represent the next generation,
+          continuing the family's vision while embracing innovation,
+          modernization and future growth.
+        </p>
+
+      </div>
+
+    </div>
+
+  </Container>
+
+</section>
 
 </BaseLayout>
+
+<style>
+
+.hero{
+padding:8rem 0 6rem;
+text-align:center;
+}
+
+.eyebrow{
+display:inline-block;
+margin-bottom:1rem;
+font-size:.78rem;
+letter-spacing:.28em;
+text-transform:uppercase;
+font-weight:600;
+color:var(--color-accent);
+}
+
+.hero h1{
+margin:0;
+font-size:clamp(3rem,5vw,4.7rem);
+line-height:1.1;
+color:var(--color-primary);
+}
+
+.hero p{
+max-width:760px;
+margin:2rem auto 0;
+line-height:2;
+font-size:1.12rem;
+}
+
+.story{
+padding:6rem 0;
+}
+
+.story-grid{
+display:grid;
+grid-template-columns:40% 60%;
+gap:5rem;
+}
+
+.section-title{
+display:inline-block;
+margin-bottom:1rem;
+letter-spacing:.28em;
+font-size:.75rem;
+font-weight:600;
+color:var(--color-accent);
+}
+
+.story h2{
+margin:0;
+font-size:3rem;
+color:var(--color-primary);
+}
+
+.story p{
+line-height:2;
+margin-bottom:2rem;
+}
+
+@media(max-width:900px){
+
+.hero{
+padding:6rem 0 5rem;
+}
+
+.story-grid{
+grid-template-columns:1fr;
+}
+
+.story h2{
+font-size:2.2rem;
+}
+
+}
+
+</style>

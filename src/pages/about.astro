@@ -93,23 +93,23 @@ import Container from "../components/ui/Container.astro";
     </span>
 
     <h2>
-      Two Manufacturing Verticals.<br />
-      One Shared Vision.
+     Built on Three Companies.<br />
+      Driven by One Manufacturing Vision.
     </h2>
 
     <p class="companies-intro">
-      While operating under three registered entities, S R Group delivers its
-      manufacturing capabilities through two focused business verticals—our
-      integrated chemical manufacturing operations and our specialised resin
-      manufacturing division.
-    </p>
+      S R Group brings together three registered companies with complementary expertise in chemical and resin manufacturing. Together, they form an integrated manufacturing ecosystem focused on quality, consistency, and reliable industrial solutions.
+</p>
 
     <div class="company-grid">
 
-      <article>
+     <a
+  href={`${import.meta.env.BASE_URL}companies/industries`}
+  class="company-card"
+>
 
         <span class="company-type">
-          CHEMICAL MANUFACTURING
+          INDUSTRIAL CHEMICALS
         </span>
 
         <h3>
@@ -117,19 +117,18 @@ import Container from "../components/ui/Container.astro";
         </h3>
 
         <p>
-          Established in 1997, S R Industries and S R Plast operate together
-          from a shared manufacturing facility in Chhatral GIDC. Together they
-          manufacture industrial chemicals, distilled solvents and customised
-          chemical solutions while sharing infrastructure, manufacturing
-          expertise, quality systems and customer relationships.
+          Since 1997, S R Industries and S R Plast have been manufacturing industrial chemicals, distilled solvents, and custom chemical solutions for customers across diverse industries. Backed by decades of manufacturing expertise, we are committed to delivering consistent quality, dependable supply, and long-term value.
         </p>
 
-      </article>
+     </a>
 
-      <article>
+      <a
+  href={`${import.meta.env.BASE_URL}companies/polymers`}
+  class="company-card"
+>
 
         <span class="company-type">
-          POLYMER MANUFACTURING
+          UNSATURATED POLYESTER RESINS 
         </span>
 
         <h3>
@@ -137,13 +136,10 @@ import Container from "../components/ui/Container.astro";
         </h3>
 
         <p>
-          Established in 2012, S R Polymers specialises in the manufacturing
-          of Unsaturated Polyester Resins for composite and FRP industries,
-          expanding the Group's capabilities into advanced polymer solutions
-          while maintaining the same commitment to quality and reliability.
+Founded in 2012, S R Polymers specializes in manufacturing Unsaturated Polyester Resins for composite and FRP applications. Our focus on product quality, technical excellence, and reliable performance enables us to serve manufacturers with solutions they can depend on.
         </p>
 
-      </article>
+      </a>
 
     </div>
 
@@ -254,7 +250,7 @@ border-radius:22px;
 transition:.3s ease;
 }
 
-.company-grid article:hover{
+.company-card:hover{
 transform:translateY(-5px);
 box-shadow:0 18px 40px rgba(0,0,0,.05);
 }
@@ -287,8 +283,13 @@ color:var(--color-text-light);
 .company-grid{
 grid-template-columns:1fr;
 }
+.company-card{
+display:block;
+text-decoration:none;
+color:inherit;
+}
 
-.company-grid article{
+.company-card{
 padding:2.25rem;
 }
 

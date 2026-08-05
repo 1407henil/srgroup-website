@@ -11,10 +11,10 @@ import Container from "./Container.astro";
       <div class="footer-brand">
 
         <img
-          src={new URL("/assets/logo/sr-group.svg", Astro.url).pathname}
-          alt="S R Group"
-          class="footer-logo"
-        />
+  src={`${import.meta.env.BASE_URL}assets/logo/sr-group.svg`}
+  alt="S R Group"
+  class="footer-logo"
+/>
 
         <p class="footer-tagline">
           Chemical Manufacturing Excellence Since 1997.

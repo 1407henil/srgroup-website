@@ -13,14 +13,27 @@ const isActive = (href: string) =>
 
   <div class="header-container">
 
-    <a href={base} class="logo">
+  <a href={base} class="logo">
 
-     <img
-  src={`${base}assets/logo/1.svg`}
-  alt="S R Group"
-/>
+  <img
+    src={`${base}assets/logo/1.svg`}
+    alt="S R Group"
+    class="logo-icon"
+  />
 
-    </a>
+  <div class="logo-text">
+
+    <span class="logo-title">
+      S R Group
+    </span>
+
+    <span class="logo-subtitle">
+      ESTABLISHED 1997
+    </span>
+
+  </div>
+
+</a>
 
     <nav>
 
@@ -88,13 +101,38 @@ align-items:center;
 .logo{
 display:flex;
 align-items:center;
+gap:1rem;
 text-decoration:none;
+flex-shrink:0;
 }
 
-.logo img{
-height:76px;
+.logo-icon{
+height:64px;
 width:auto;
 display:block;
+}
+
+.logo-text{
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.logo-title{
+font-family:var(--font-heading);
+font-size:2.2rem;
+font-weight:700;
+line-height:1;
+color:var(--color-accent);
+}
+
+.logo-subtitle{
+margin-top:.45rem;
+font-size:.72rem;
+font-weight:600;
+letter-spacing:.34em;
+text-transform:uppercase;
+color:#8A8A8A;
 }
 
 nav{
@@ -137,8 +175,17 @@ background:var(--color-accent);
 padding:1rem 1.25rem;
 }
 
-.logo img{
-height:58px;
+.logo-icon{
+height:48px;
+}
+
+.logo-title{
+font-size:1.7rem;
+}
+
+.logo-subtitle{
+font-size:.6rem;
+letter-spacing:.28em;
 }
 
 nav{

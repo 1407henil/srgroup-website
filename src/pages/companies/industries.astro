@@ -1,1 +1,357 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Container from "../../components/ui/Container.astro";
+---
 
+<BaseLayout
+  title="S R Industries & S R Plast | S R Group"
+  description="S R Industries and S R Plast manufacture industrial chemicals, distilled solvents and chemical solutions for diverse industrial applications."
+>
+
+<section class="hero">
+
+  <Container>
+
+    <span class="eyebrow">
+      S R INDUSTRIES &amp; S R PLAST
+    </span>
+
+    <h1>
+      Industrial Chemical<br />
+      Manufacturing
+    </h1>
+
+    <p>
+      Since 1997, S R Industries and S R Plast have operated together from a
+      shared manufacturing facility in Chhatral GIDC, manufacturing industrial
+      chemicals, distilled solvents and chemical solutions with a focus on
+      consistent quality, dependable supply and long-term customer partnerships.
+    </p>
+
+  </Container>
+
+</section>
+
+<section class="overview">
+
+  <Container>
+
+    <div class="grid">
+
+      <div>
+
+        <span class="section-title">
+          OVERVIEW
+        </span>
+
+        <h2>
+          Established Manufacturing Expertise
+        </h2>
+
+        <p>
+          S R Industries and S R Plast form the core of S R Group's industrial
+          chemical manufacturing operations. Together, they manufacture and
+          process chemical products for customers across diverse industrial
+          sectors.
+        </p>
+
+        <p>
+          Operating from a common manufacturing facility in Chhatral GIDC,
+          Gujarat, the companies combine manufacturing experience, technical
+          expertise and established processes to deliver dependable products
+          and consistent quality.
+        </p>
+
+      </div>
+
+      <div class="facts">
+
+        <div class="fact">
+          <strong>1997</strong>
+          <span>Manufacturing Journey</span>
+        </div>
+
+        <div class="fact">
+          <strong>Solvents</strong>
+          <span>Distilled Industrial Solvents</span>
+        </div>
+
+        <div class="fact">
+          <strong>Chemicals</strong>
+          <span>Industrial Chemical Manufacturing</span>
+        </div>
+
+        <div class="fact">
+          <strong>B2B</strong>
+          <span>Industrial Customer Focus</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </Container>
+
+</section>
+
+<section class="applications">
+
+  <Container>
+
+    <span class="section-title">
+      CAPABILITIES
+    </span>
+
+    <h2>
+      Manufacturing Capabilities
+    </h2>
+
+    <div class="cards">
+
+      <article>
+
+        <h3>Industrial Chemicals</h3>
+
+        <p>
+          Manufacturing and processing of chemical products for diverse
+          industrial applications.
+        </p>
+
+      </article>
+
+      <article>
+
+        <h3>Distilled Solvents</h3>
+
+        <p>
+          Precision distillation and solvent processing focused on consistent
+          quality and dependable performance.
+        </p>
+
+      </article>
+
+      <article>
+
+        <h3>Chemical Processing</h3>
+
+        <p>
+          Established manufacturing processes supported by technical expertise
+          and controlled production practices.
+        </p>
+
+      </article>
+
+    </div>
+
+  </Container>
+
+</section>
+
+<section class="cta">
+
+  <Container>
+
+    <h2>
+      Looking for Industrial Chemical Solutions?
+    </h2>
+
+    <p>
+      Contact our team to discuss product specifications, manufacturing
+      requirements and commercial enquiries.
+    </p>
+
+    <a
+      href={`${import.meta.env.BASE_URL}contact`}
+      class="button"
+    >
+      Contact Us
+    </a>
+
+  </Container>
+
+</section>
+
+</BaseLayout>
+
+<style>
+
+.hero{
+padding:8rem 0 6rem;
+text-align:center;
+}
+
+.eyebrow{
+display:inline-block;
+margin-bottom:1rem;
+font-size:.8rem;
+font-weight:600;
+letter-spacing:.28em;
+text-transform:uppercase;
+color:var(--color-accent);
+}
+
+.hero h1{
+margin:0;
+font-family:var(--font-heading);
+font-size:clamp(3rem,5vw,4.6rem);
+line-height:1.1;
+color:var(--color-primary);
+}
+
+.hero p{
+max-width:800px;
+margin:2rem auto 0;
+font-size:1.15rem;
+line-height:2;
+color:var(--color-text-light);
+}
+
+.overview{
+padding:2rem 0 6rem;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1.4fr .9fr;
+gap:5rem;
+}
+
+.section-title{
+display:inline-block;
+margin-bottom:1rem;
+font-size:.75rem;
+letter-spacing:.28em;
+text-transform:uppercase;
+font-weight:600;
+color:var(--color-accent);
+}
+
+.overview h2,
+.applications h2,
+.cta h2{
+margin:0 0 2rem;
+font-family:var(--font-heading);
+font-size:2.5rem;
+color:var(--color-primary);
+}
+
+.overview p{
+font-size:1.08rem;
+line-height:2;
+color:var(--color-text-light);
+margin-bottom:1.5rem;
+}
+
+.facts{
+display:grid;
+gap:1.5rem;
+}
+
+.fact{
+padding:2rem;
+border:1px solid var(--color-border);
+border-radius:18px;
+background:#fff;
+}
+
+.fact strong{
+display:block;
+font-size:1.6rem;
+margin-bottom:.5rem;
+color:var(--color-primary);
+}
+
+.fact span{
+color:var(--color-text-light);
+}
+
+.applications{
+padding:1rem 0 7rem;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:2rem;
+margin-top:3rem;
+}
+
+.cards article{
+padding:2.5rem;
+border:1px solid var(--color-border);
+border-radius:20px;
+background:#fff;
+transition:.3s;
+}
+
+.cards article:hover{
+transform:translateY(-4px);
+box-shadow:0 20px 40px rgba(0,0,0,.05);
+}
+
+.cards h3{
+margin:0 0 1rem;
+font-family:var(--font-heading);
+font-size:1.5rem;
+color:var(--color-primary);
+}
+
+.cards p{
+margin:0;
+line-height:1.9;
+color:var(--color-text-light);
+}
+
+.cta{
+padding:1rem 0 8rem;
+text-align:center;
+}
+
+.cta p{
+max-width:620px;
+margin:1.5rem auto 2.5rem;
+line-height:1.9;
+color:var(--color-text-light);
+}
+
+.button{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:1rem 2.25rem;
+border-radius:999px;
+border:1px solid var(--color-accent);
+text-decoration:none;
+font-weight:600;
+color:var(--color-primary);
+transition:.3s;
+}
+
+.button:hover{
+background:var(--color-accent);
+color:#fff;
+}
+
+@media (max-width:900px){
+
+.hero{
+padding:6rem 0 5rem;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.overview h2,
+.applications h2,
+.cta h2{
+font-size:2rem;
+}
+
+}
+
+</style>

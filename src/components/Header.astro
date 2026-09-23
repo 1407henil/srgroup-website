@@ -35,28 +35,18 @@ const isActive = (href: string) =>
 
 </a>
 
-    <nav>
+       <nav>
 
-
-      
-        href={base}
-        class:list={[{ active: path === "/" }]}
-      >
+      <a href={base} class:list={[{ active: path === "/" }]}>
         Home
       </a>
 
-      
-        href={`${base}about`}
-        class:list={[{ active: isActive("/about") }]}
-      >
+      <a href={`${base}about`} class:list={[{ active: isActive("/about") }]}>
         About
       </a>
 
       <div class="nav-item has-dropdown">
-        
-          href={`${base}companies`}
-          class:list={[{ active: isActive("/companies") }]}
-        >
+        <a href={`${base}companies`} class:list={[{ active: isActive("/companies") }]}>
           Companies
         </a>
 
@@ -67,24 +57,15 @@ const isActive = (href: string) =>
         </div>
       </div>
 
-      
-        href={`${base}products`}
-        class:list={[{ active: isActive("/products") }]}
-      >
+      <a href={`${base}products`} class:list={[{ active: isActive("/products") }]}>
         Products
       </a>
 
-      
-        href={`${base}contact`}
-        class:list={[{ active: isActive("/contact") }]}
-      >
+      <a href={`${base}contact`} class:list={[{ active: isActive("/contact") }]}>
         Contact
       </a>
 
-    
-
     </nav>
-
   </div>
 
 </header>

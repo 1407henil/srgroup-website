@@ -1,350 +1,516 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Container from "../../components/ui/Container.astro";
+
+const capabilities = [
+  {
+    title: "Established 2012",
+    text: "A newer addition to S R Group's manufacturing operations, built specifically for resin production.",
+  },
+  {
+    title: "Purpose-Built Facility",
+    text: "Operates from its own facility within Chhatral GIDC, developed separately from our original site, with updated production infrastructure.",
+  },
+  {
+    title: "Multi-Grade Production",
+    text: "Equipped to manufacture Unsaturated Polyester Resin across multiple grades for different applications.",
+  },
+  {
+    title: "Consistent Batch Quality",
+    text: "Quality checked at each stage to maintain consistency, batch after batch.",
+  },
+  {
+    title: "High-Volume Manufacturing",
+    text: "Built to handle large manufacturing volumes, supporting consistent, large-scale supply.",
+  },
+  {
+    title: "Reliable Packaging & Dispatch",
+    text: "Products packaged and dispatched to meet agreed delivery schedules.",
+  },
+];
+
+const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
 ---
 
 <BaseLayout
   title="S R Polymers | S R Group"
-  description="S R Polymers manufactures premium unsaturated polyester resins for composite and industrial applications."
+  description="S R Polymers manufactures Unsaturated Polyester Resin across multiple grades, from our facility in Chhatral GIDC, Gujarat."
 >
 
-<section class="hero">
-
+<!-- ================= STATEMENT ================= -->
+<section class="poly-statement">
   <Container>
+    <div class="poly-statement-grid">
+      <div class="poly-statement-text">
+        <span class="eyebrow">S R POLYMERS</span>
 
-    <span class="eyebrow">
-      S R POLYMERS
-    </span>
+        <h1>Strength, engineered into every grade.</h1>
 
-    <h1>
-      Unsaturated Polyester<br />
-      Resin Manufacturing
-    </h1>
-
-    <p>
-      Established to serve the growing composites industry, S R Polymers
-      manufactures high-quality unsaturated polyester resins with a focus on
-      consistency, dependable quality and long-term customer partnerships.
-    </p>
-
-  </Container>
-
-</section>
-
-<section class="overview">
-
-  <Container>
-
-    <div class="grid">
-
-      <div>
-
-        <span class="section-title">
-          OVERVIEW
-        </span>
-
-        <h2>
-          Reliable Resin Manufacturing
-        </h2>
-
-        <p>
-          S R Polymers specialises in manufacturing unsaturated polyester
-          resins for FRP, composites and industrial applications using modern
-          production processes and strict quality control.
+        <p class="lead">
+          S R Polymers manufactures Unsaturated Polyester Resin from our
+          facility in Chhatral GIDC, Gujarat — built to serve applications
+          from marine construction to quartz and roofing.
         </p>
 
-        <p>
-          Every batch is produced with consistency and performance in mind,
-          helping customers achieve dependable manufacturing results.
-        </p>
-
+        <div class="facts">
+          <div class="fact">
+            <span>Established</span>
+            <strong>2012</strong>
+          </div>
+          <div class="fact">
+            <span>Location</span>
+            <strong>Chhatral GIDC, Gujarat</strong>
+          </div>
+          <div class="fact">
+            <span>Specialization</span>
+            <strong>Unsaturated Polyester Resin</strong>
+          </div>
+        </div>
       </div>
 
-      <div class="facts">
+      <!-- PHOTO SLOT: wide facility exterior or plant overview shot -->
+      <div class="photo-slot photo-tall">
+        <span>Facility photo</span>
+      </div>
+    </div>
+  </Container>
+</section>
 
-        <div class="fact">
-          <strong>UPR</strong>
-          <span>Unsaturated Polyester Resin</span>
-        </div>
-
-        <div class="fact">
-          <strong>FRP</strong>
-          <span>Composite Applications</span>
-        </div>
-
-        <div class="fact">
-          <strong>Quality</strong>
-          <span>Controlled Manufacturing</span>
-        </div>
-
-        <div class="fact">
-          <strong>Industrial</strong>
-          <span>B2B Supply</span>
-        </div>
-
+<!-- ================= STORY ================= -->
+<section class="poly-story">
+  <Container>
+    <div class="poly-story-grid">
+      <!-- PHOTO SLOT: production line / resin plant close-up -->
+      <div class="photo-slot photo-square">
+        <span>Facility photo</span>
       </div>
 
+      <div class="poly-story-text">
+        <span class="eyebrow">OUR STORY</span>
+        <h2>A Purpose-Built Facility in Chhatral GIDC</h2>
+
+        <p>
+          S R Polymers was established in 2012, operating from its own
+          facility within Chhatral GIDC, Gujarat — developed on a separate
+          plot from our original site, with more current production
+          infrastructure built around it.
+        </p>
+
+        <p>
+          The plant manufactures Unsaturated Polyester Resin at scale,
+          supplying grades used across marine construction, quartz and
+          marble composites, FRP applications, and roofing sheets.
+        </p>
+      </div>
     </div>
-
   </Container>
-
 </section>
 
-<section class="applications">
-
+<!-- ================= PROOF ================= -->
+<section class="poly-proof">
   <Container>
+    <span class="eyebrow">CAPABILITIES</span>
+    <h2>Manufacturing Capabilities</h2>
 
-    <span class="section-title">
-      APPLICATIONS
-    </span>
-
-    <h2>
-      Industries We Support
-    </h2>
-
-    <div class="cards">
-
-      <article>
-
-        <h3>FRP Products</h3>
-
-        <p>
-          Resin solutions for fibre reinforced plastic manufacturing.
-        </p>
-
-      </article>
-
-      <article>
-
-        <h3>Composite Components</h3>
-
-        <p>
-          High-performance resins suitable for composite production.
-        </p>
-
-      </article>
-
-      <article>
-
-        <h3>Industrial Moulding</h3>
-
-        <p>
-          Reliable resin systems for industrial moulding applications.
-        </p>
-
-      </article>
-
+    <div class="capability-grid">
+      {capabilities.map((item) => (
+        <div class="capability-card">
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </div>
+      ))}
     </div>
-
   </Container>
-
 </section>
 
-<section class="cta">
-
+<!-- ================= PRODUCTS ================= -->
+<section class="poly-products">
   <Container>
-
-    <h2>
-      Looking for Resin Solutions?
-    </h2>
-
-    <p>
-      Contact our team to discuss product specifications and manufacturing
-      requirements.
+    <span class="eyebrow">PRODUCT RANGE</span>
+    <h2>Our Product Range</h2>
+    <p class="lead">
+      Unsaturated Polyester Resin, manufactured across multiple grades
+      developed for the applications below.
     </p>
 
-    <a
-      href={`${import.meta.env.BASE_URL}contact`}
-      class="button"
-    >
-      Contact Us
-    </a>
+    <div class="product-block">
+      <h3>Unsaturated Polyester Resin</h3>
 
+      <div class="category-group">
+        <span class="group-label">Applications</span>
+        <ul>
+          {applications.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+
+      <!-- GRADE LIST: replace/extend with specific grade names once provided -->
+    </div>
+
+    <div class="catalogue-link">
+      <a href={`${import.meta.env.BASE_URL}products`} class="button">
+        View Full Product Catalogue
+      </a>
+    </div>
   </Container>
+</section>
 
+<!-- ================= CTA ================= -->
+<section class="poly-cta">
+  <Container>
+    <h2>Looking for a Specific Resin Grade?</h2>
+    <p>
+      Explore our range of Unsaturated Polyester Resin grades and industrial
+      applications.
+    </p>
+
+    <div class="cta-actions">
+      <a href={`${import.meta.env.BASE_URL}products`} class="button">
+        View Product Catalogue
+      </a>
+      <a href={`${import.meta.env.BASE_URL}contact`} class="button secondary">
+        Contact Our Team
+      </a>
+    </div>
+  </Container>
 </section>
 
 </BaseLayout>
 
+
 <style>
 
-.hero{
-padding:8rem 0 6rem;
-text-align:center;
-}
+/* ---------- shared ---------- */
 
 .eyebrow{
-display:inline-block;
-margin-bottom:1rem;
-font-size:.8rem;
-font-weight:600;
-letter-spacing:.28em;
-text-transform:uppercase;
-color:var(--color-accent);
+  display:inline-block;
+  margin-bottom:1.25rem;
+  font-size:.95rem;
+  font-weight:700;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+  border-left:3px solid var(--color-accent);
+  padding-left:.75rem;
 }
 
-.hero h1{
-margin:0;
-font-family:var(--font-heading);
-font-size:clamp(3rem,5vw,4.6rem);
-line-height:1.1;
-color:var(--color-primary);
-}
-
-.hero p{
-max-width:760px;
-margin:2rem auto 0;
-font-size:1.15rem;
-line-height:2;
-color:var(--color-text-light);
-}
-
-.overview{
-padding:2rem 0 6rem;
-}
-
-.grid{
-display:grid;
-grid-template-columns:1.4fr .9fr;
-gap:5rem;
-}
-
-.section-title{
-display:inline-block;
-margin-bottom:1rem;
-font-size:.75rem;
-letter-spacing:.28em;
-text-transform:uppercase;
-font-weight:600;
-color:var(--color-accent);
-}
-
-.overview h2,
-.applications h2,
-.cta h2{
-margin:0 0 2rem;
-font-family:var(--font-heading);
-font-size:2.5rem;
-color:var(--color-primary);
-}
-
-.overview p{
-font-size:1.08rem;
-line-height:2;
-color:var(--color-text-light);
-margin-bottom:1.5rem;
-}
-
-.facts{
-display:grid;
-gap:1.5rem;
-}
-
-.fact{
-padding:2rem;
-border:1px solid var(--color-border);
-border-radius:18px;
-background:#fff;
-}
-
-.fact strong{
-display:block;
-font-size:1.6rem;
-margin-bottom:.5rem;
-color:var(--color-primary);
-}
-
-.fact span{
-color:var(--color-text-light);
-}
-
-.applications{
-padding:1rem 0 7rem;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:2rem;
-margin-top:3rem;
-}
-
-.cards article{
-padding:2.5rem;
-border:1px solid var(--color-border);
-border-radius:20px;
-background:#fff;
-transition:.3s;
-}
-
-.cards article:hover{
-transform:translateY(-4px);
-box-shadow:0 20px 40px rgba(0,0,0,.05);
-}
-
-.cards h3{
-margin:0 0 1rem;
-font-family:var(--font-heading);
-font-size:1.5rem;
-color:var(--color-primary);
-}
-
-.cards p{
-margin:0;
-line-height:1.9;
-color:var(--color-text-light);
-}
-
-.cta{
-padding:1rem 0 8rem;
-text-align:center;
-}
-
-.cta p{
-max-width:620px;
-margin:1.5rem auto 2.5rem;
-line-height:1.9;
-color:var(--color-text-light);
+.lead{
+  font-size:1.1rem;
+  line-height:1.9;
+  color:var(--color-text-light);
 }
 
 .button{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:1rem 2.25rem;
-border-radius:999px;
-border:1px solid var(--color-accent);
-text-decoration:none;
-font-weight:600;
-color:var(--color-primary);
-transition:.3s;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:1rem 2.25rem;
+  border:1px solid var(--color-accent);
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:600;
+  color:var(--color-primary);
+  transition:var(--transition);
 }
 
 .button:hover{
-background:var(--color-accent);
-color:#fff;
+  background:var(--color-accent);
+  color:#fff;
 }
 
-@media (max-width:900px){
-
-.hero{
-padding:6rem 0 5rem;
+.button.secondary{
+  background:transparent;
 }
 
-.grid{
-grid-template-columns:1fr;
+.photo-slot{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px dashed var(--color-border);
+  border-radius:var(--radius);
+  background:#F1EEE6;
+  color:var(--color-text-light);
+  font-size:.85rem;
+  font-style:italic;
 }
 
-.cards{
-grid-template-columns:1fr;
+.photo-tall{
+  aspect-ratio:4/5;
 }
 
-.overview h2,
-.applications h2,
-.cta h2{
-font-size:2rem;
+.photo-square{
+  aspect-ratio:1/1;
 }
 
+/* ---------- statement ---------- */
+
+.poly-statement{
+  padding:7rem 0 6rem;
+}
+
+.poly-statement-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:4rem;
+  align-items:center;
+}
+
+.poly-statement h1{
+  margin:0;
+  font-family:var(--font-heading);
+  font-size:clamp(2.8rem,5vw,4.6rem);
+  line-height:1.05;
+  color:var(--color-primary);
+}
+
+.poly-statement .lead{
+  margin:1.75rem 0 0;
+  max-width:52ch;
+}
+
+.facts{
+  margin-top:3rem;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+  padding-top:2rem;
+  border-top:1px solid var(--color-border);
+}
+
+.fact{
+  display:flex;
+  flex-direction:column;
+  gap:.4rem;
+}
+
+.fact span{
+  font-size:.7rem;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+}
+
+.fact strong{
+  font-size:.95rem;
+  font-weight:600;
+  color:var(--color-primary);
+}
+
+/* ---------- story ---------- */
+
+.poly-story{
+  padding:6rem 0;
+  background:#F5F1E9;
+}
+
+.poly-story-grid{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:4rem;
+  align-items:center;
+}
+
+.poly-story-text h2{
+  margin:0;
+  font-family:var(--font-heading);
+  font-size:clamp(2.2rem,3.5vw,3.2rem);
+  line-height:1.15;
+  color:var(--color-primary);
+}
+
+.poly-story-text p{
+  margin:1.5rem 0 0;
+  font-size:1.05rem;
+  line-height:1.9;
+  color:var(--color-text-light);
+  max-width:60ch;
+}
+
+/* ---------- proof ---------- */
+
+.poly-proof{
+  padding:7rem 0;
+}
+
+.poly-proof h2{
+  margin:0 0 3.5rem;
+  font-family:var(--font-heading);
+  font-size:clamp(2.2rem,3.5vw,3.2rem);
+  color:var(--color-primary);
+}
+
+.capability-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2px;
+  background:var(--color-border);
+  border:1px solid var(--color-border);
+}
+
+.capability-card{
+  padding:2.5rem;
+  background:var(--color-bg);
+  border-left:3px solid transparent;
+  transition:var(--transition);
+}
+
+.capability-card:hover{
+  border-left-color:var(--color-accent);
+  background:#fff;
+}
+
+.capability-card h3{
+  margin:0 0 .85rem;
+  font-family:var(--font-heading);
+  font-size:1.4rem;
+  color:var(--color-primary);
+}
+
+.capability-card p{
+  margin:0;
+  font-size:.98rem;
+  line-height:1.7;
+  color:var(--color-text-light);
+}
+
+/* ---------- products ---------- */
+
+.poly-products{
+  padding:7rem 0;
+  background:#F5F1E9;
+}
+
+.poly-products h2{
+  margin:.5rem 0 0;
+  font-family:var(--font-heading);
+  font-size:clamp(2.2rem,3.5vw,3.2rem);
+  color:var(--color-primary);
+}
+
+.poly-products > :global(.container) > .lead{
+  margin:1.25rem 0 3.5rem;
+  max-width:60ch;
+}
+
+.product-block{
+  padding:2.5rem;
+  background:var(--color-bg);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius);
+  max-width:560px;
+}
+
+.product-block h3{
+  margin:0 0 1.75rem;
+  font-family:var(--font-heading);
+  font-size:1.75rem;
+  color:var(--color-primary);
+}
+
+.category-group{
+  margin-bottom:0;
+}
+
+.group-label{
+  display:block;
+  margin-bottom:.6rem;
+  font-size:.7rem;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+}
+
+.category-group ul{
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.category-group li{
+  padding:.4rem 0;
+  font-size:1rem;
+  color:var(--color-text);
+  border-bottom:1px solid var(--color-border);
+}
+
+.category-group li:last-child{
+  border-bottom:none;
+}
+
+.catalogue-link{
+  margin-top:3.5rem;
+  text-align:center;
+}
+
+/* ---------- cta ---------- */
+
+.poly-cta{
+  padding:7rem 0 8rem;
+  text-align:center;
+}
+
+.poly-cta h2{
+  margin:0;
+  font-family:var(--font-heading);
+  font-size:clamp(2.2rem,4vw,3.4rem);
+  color:var(--color-primary);
+}
+
+.poly-cta p{
+  max-width:640px;
+  margin:1.5rem auto 2.5rem;
+  line-height:1.9;
+  color:var(--color-text-light);
+}
+
+.cta-actions{
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+/* ---------- responsive ---------- */
+
+@media(max-width:1000px){
+  .poly-statement-grid,
+  .poly-story-grid{
+    grid-template-columns:1fr;
+  }
+
+  .poly-story-grid{
+    display:flex;
+    flex-direction:column-reverse;
+  }
+
+  .facts{
+    grid-template-columns:1fr;
+  }
+
+  .capability-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .poly-statement{
+    padding:5rem 0 4rem;
+  }
+
+  .poly-story,
+  .poly-proof,
+  .poly-products{
+    padding:5rem 0;
+  }
+
+  .capability-grid{
+    grid-template-columns:1fr;
+  }
+
+  .poly-cta{
+    padding:5rem 0 6rem;
+  }
 }
 
 </style>

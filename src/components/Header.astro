@@ -52,11 +52,20 @@ const isActive = (href: string) =>
       </a>
 
       <a
-        href={`${base}companies`}
-        class:list={[{ active: isActive("/companies") }]}
-      >
-        Companies
-      </a>
+            <div class="nav-item has-dropdown">
+        
+          href={`${base}companies`}
+          class:list={[{ active: isActive("/companies") }]}
+        >
+          Companies
+        </a>
+
+        <div class="dropdown">
+          <a href={`${base}companies/industries`}>S R Industries</a>
+          <a href={`${base}companies/industries`}>S R Plast</a>
+          <a href={`${base}companies/polymers`}>S R Polymers</a>
+        </div>
+      </div>
 
       <a
         href={`${base}products`}
@@ -172,9 +181,66 @@ bottom:-10px;
 height:2px;
 background:var(--color-accent);
 }
+.nav-item{
+position:relative;
+}
 
+.dropdown{
+position:absolute;
+top:calc(100% + 14px);
+left:50%;
+min-width:200px;
+padding:.6rem;
+display:flex;
+flex-direction:column;
+background:var(--color-bg);
+border:1px solid var(--color-border);
+border-radius:var(--radius);
+box-shadow:0 18px 40px rgba(0,0,0,.08);
+opacity:0;
+visibility:hidden;
+transform:translateX(-50%) translateY(-6px);
+transition:opacity .2s ease, transform .2s ease, visibility .2s;
+z-index:1100;
+}
+
+.dropdown a{
+padding:.6rem .9rem;
+border-radius:4px;
+font-size:.92rem;
+white-space:nowrap;
+}
+
+.dropdown a:hover{
+background:rgba(196,154,42,.1);
+}
+
+@media (hover:hover) and (pointer:fine){
+.nav-item.has-dropdown:hover .dropdown{
+opacity:1;
+visibility:visible;
+transform:translateX(-50%) translateY(0);
+}
+}
+
+.nav-item.has-dropdown.open .dropdown{
+opacity:1;
+visibility:visible;
+transform:translateX(-50%) translateY(0);
+}
 @media(max-width:900px){
 
+.dropdown{
+position:fixed;
+left:1rem;
+right:1rem;
+top:auto;
+transform:none;
+}
+
+.nav-item.has-dropdown.open .dropdown{
+transform:none;
+}
 .header-container{
 padding:1rem 1.25rem;
 }
@@ -205,3 +271,36 @@ font-size:.88rem;
 }
 
 </style>
+
+<script>
+  const header = document.querySelector(".site-header");
+  const items = document.querySelectorAll(".nav-item.has-dropdown");
+
+  items.forEach((item) => {
+    const trigger = item.querySelector(":scope > a");
+    const dropdown = item.querySelector(".dropdown");
+
+    trigger?.addEventListener("click", (e) => {
+      const isTouch = !window.matchMedia(
+        "(hover: hover) and (pointer: fine)"
+      ).matches;
+
+      if (isTouch && !item.classList.contains("open")) {
+        e.preventDefault();
+        items.forEach((i) => i.classList.remove("open"));
+        if (dropdown && header) {
+          dropdown.style.top = `${header.getBoundingClientRect().bottom}px`;
+        }
+        item.classList.add("open");
+      }
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    items.forEach((item) => {
+      if (!item.contains(e.target as Node)) {
+        item.classList.remove("open");
+      }
+    });
+  });
+</script>

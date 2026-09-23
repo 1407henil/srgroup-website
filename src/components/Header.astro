@@ -230,17 +230,6 @@ transform:translateX(-50%) translateY(0);
 }
 @media(max-width:900px){
 
-.dropdown{
-position:fixed;
-left:1rem;
-right:1rem;
-top:auto;
-transform:none;
-}
-
-.nav-item.has-dropdown.open .dropdown{
-transform:none;
-}
 .header-container{
 padding:1rem 1.25rem;
 }
@@ -266,6 +255,18 @@ overflow-x:auto;
 nav a{
 white-space:nowrap;
 font-size:.88rem;
+}
+
+.dropdown{
+position:fixed;
+left:1rem;
+right:1rem;
+top:auto;
+transform:none;
+}
+
+.nav-item.has-dropdown.open .dropdown{
+transform:none;
 }
 
 }

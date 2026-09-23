@@ -37,22 +37,22 @@ const isActive = (href: string) =>
 
     <nav>
 
-      <a
+
+      
         href={base}
         class:list={[{ active: path === "/" }]}
       >
         Home
       </a>
 
-      <a
+      
         href={`${base}about`}
         class:list={[{ active: isActive("/about") }]}
       >
         About
       </a>
 
-      <a
-                    <div class="nav-item has-dropdown">
+      <div class="nav-item has-dropdown">
         
           href={`${base}companies`}
           class:list={[{ active: isActive("/companies") }]}
@@ -67,19 +67,21 @@ const isActive = (href: string) =>
         </div>
       </div>
 
-      <a
+      
         href={`${base}products`}
         class:list={[{ active: isActive("/products") }]}
       >
         Products
       </a>
 
-      <a
+      
         href={`${base}contact`}
         class:list={[{ active: isActive("/contact") }]}
       >
         Contact
       </a>
+
+    
 
     </nav>
 

@@ -1,0 +1,158 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Container from "../../components/ui/Container.astro";
+
+const distilled = ["Mono Ethylene Glycol (MEG)", "Diethylene Glycol (DEG)", "Triethylene Glycol (TEG)"];
+const pure = ["Mono Ethylene Glycol (MEG)", "Diethylene Glycol (DEG)"];
+---
+
+<BaseLayout
+  title="Ethylene Glycols | S R Group"
+  description="Distilled and pure grade Ethylene Glycols from S R Industries and S R Plast."
+>
+
+<section class="range-intro">
+  <Container>
+    <span class="eyebrow">S R INDUSTRIES &amp; S R PLAST</span>
+    <h1>Ethylene Glycols</h1>
+    <p class="lead">
+      Ethylene Glycols manufactured in both distilled and pure grades,
+      supplied to meet a range of industrial specifications.
+    </p>
+  </Container>
+</section>
+
+<section class="range-body">
+  <Container>
+    <div class="category-grid">
+      <div class="category-block">
+        <h3>Distilled</h3>
+        <ul>
+          {distilled.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+
+      <div class="category-block">
+        <h3>Pure</h3>
+        <ul>
+          {pure.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Detailed specifications for each product to be added later -->
+
+    <div class="group-link">
+      <a href={`${import.meta.env.BASE_URL}companies/industries`}>
+        Learn more about S R Industries &amp; S R Plast
+      </a>
+    </div>
+  </Container>
+</section>
+
+</BaseLayout>
+
+<style>
+
+.eyebrow{
+  display:inline-block;
+  margin-bottom:1.25rem;
+  font-size:.95rem;
+  font-weight:700;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+  border-left:3px solid var(--color-accent);
+  padding-left:.75rem;
+}
+
+.lead{
+  font-size:1.1rem;
+  line-height:1.9;
+  color:var(--color-text-light);
+  max-width:60ch;
+}
+
+.range-intro{
+  padding:7rem 0 4rem;
+}
+
+.range-intro h1{
+  margin:0 0 1.5rem;
+  font-family:var(--font-heading);
+  font-size:clamp(2.6rem,5vw,4rem);
+  line-height:1.05;
+  color:var(--color-primary);
+}
+
+.range-body{
+  padding:0 0 6rem;
+}
+
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:3rem;
+}
+
+.category-block{
+  padding:2.5rem;
+  background:var(--color-bg);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius);
+}
+
+.category-block h3{
+  margin:0 0 1.5rem;
+  font-family:var(--font-heading);
+  font-size:1.5rem;
+  color:var(--color-primary);
+}
+
+.category-block ul{
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.category-block li{
+  padding:.4rem 0;
+  font-size:1rem;
+  color:var(--color-text);
+  border-bottom:1px solid var(--color-border);
+}
+
+.category-block li:last-child{
+  border-bottom:none;
+}
+
+.group-link{
+  margin-top:2.5rem;
+}
+
+.group-link a{
+  font-size:.95rem;
+  font-weight:600;
+  color:var(--color-primary);
+  text-decoration:none;
+  border-bottom:1px solid var(--color-accent);
+  padding-bottom:2px;
+}
+
+.group-link a:hover{
+  color:var(--color-accent);
+}
+
+@media(max-width:900px){
+  .category-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:600px){
+  .range-intro{
+    padding:5rem 0 3rem;
+  }
+}
+
+</style>

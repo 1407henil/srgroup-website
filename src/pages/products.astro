@@ -2,22 +2,18 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Container from "../components/ui/Container.astro";
 
-const distilled = {
-  glycols: ["Mono Ethylene Glycol (MEG)", "Diethylene Glycol (DEG)", "Triethylene Glycol (TEG)"],
-  chlorinated: ["Trichloroethylene (TCE)", "EDC LE"],
-};
-
-const pure = {
-  glycols: ["Mono Ethylene Glycol (MEG)", "Diethylene Glycol (DEG)"],
-  chlorinated: ["SRSolv"],
-};
-
 const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
+
+const distilledGlycols = ["Mono Ethylene Glycol (MEG)", "Diethylene Glycol (DEG)", "Triethylene Glycol (TEG)"];
+const pureGlycols = ["Mono Ethylene Glycol (MEG)", "Diethylene Glycol (DEG)"];
+
+const distilledChlorinated = ["Trichloroethylene (TCE)", "EDC LE"];
+const pureChlorinated = ["SRSolv"];
 ---
 
 <BaseLayout
   title="Products | S R Group"
-  description="The full product range across S R Industries, S R Plast, and S R Polymers — distilled and pure glycols and chlorinated solvents, and Unsaturated Polyester Resin."
+  description="The full product range across S R Group — Unsaturated Polyester Resin from S R Polymers, and Ethylene Glycols and Chlorinated Solvents from S R Industries and S R Plast."
 >
 
 <!-- ================= INTRO ================= -->
@@ -25,77 +21,22 @@ const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
   <Container>
     <span class="eyebrow">PRODUCT CATALOGUE</span>
     <h1>Our Product Range</h1>
-       <p class="lead">
-      S R Group's manufacturing spans two distinct lines. S R Industries and
-      S R Plast produce distilled and pure grade glycols and chlorinated
-      solvents, while S R Polymers manufactures Unsaturated Polyester Resin
-      across multiple grades. The full range is organized below by grade
-      and application.
+    <p class="lead">
+      S R Group's manufacturing spans three product categories. S R Polymers
+      manufactures Unsaturated Polyester Resin across multiple grades, while
+      S R Industries and S R Plast produce Ethylene Glycols and Chlorinated
+      Solvents, each available in distilled and pure grades.
     </p>
   </Container>
 </section>
 
-<!-- ================= S R INDUSTRIES & S R PLAST ================= -->
-<section class="prod-group">
-  <Container>
-    <span class="eyebrow">S R INDUSTRIES &amp; S R PLAST</span>
-    <h2>Glycols &amp; Chlorinated Solvents</h2>
-
-    <div class="category-grid">
-      <div class="category-block" id="distilled">
-        <h3>Distilled</h3>
-
-        <div class="category-group">
-          <span class="group-label">Glycols</span>
-          <ul>
-            {distilled.glycols.map((item) => <li>{item}</li>)}
-          </ul>
-        </div>
-
-        <div class="category-group">
-          <span class="group-label">Chlorinated</span>
-          <ul>
-            {distilled.chlorinated.map((item) => <li>{item}</li>)}
-          </ul>
-        </div>
-      </div>
-
-      <div class="category-block" id="pure">
-        <h3>Pure</h3>
-
-        <div class="category-group">
-          <span class="group-label">Glycols</span>
-          <ul>
-            {pure.glycols.map((item) => <li>{item}</li>)}
-          </ul>
-        </div>
-
-        <div class="category-group">
-          <span class="group-label">Chlorinated</span>
-          <ul>
-            {pure.chlorinated.map((item) => <li>{item}</li>)}
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="group-link">
-      <a href={`${import.meta.env.BASE_URL}companies/industries`}>
-        Learn more about S R Industries &amp; S R Plast
-      </a>
-    </div>
-  </Container>
-</section>
-
-<!-- ================= S R POLYMERS ================= -->
-<section class="prod-group prod-group-alt">
+<!-- ================= UNSATURATED POLYESTER RESIN ================= -->
+<section class="prod-group" id="polymers">
   <Container>
     <span class="eyebrow">S R POLYMERS</span>
     <h2>Unsaturated Polyester Resin</h2>
 
-    <div class="product-block" id="polymers">
-      <h3>Unsaturated Polyester Resin</h3>
-
+    <div class="product-block">
       <div class="category-group">
         <span class="group-label">Applications</span>
         <ul>
@@ -103,12 +44,72 @@ const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
         </ul>
       </div>
 
-      <!-- GRADE LIST: replace/extend with specific grade names once provided -->
+      <!-- Grade list to be added once provided -->
     </div>
 
     <div class="group-link">
-      <a href={`${import.meta.env.BASE_URL}companies/polymers`}>
-        Learn more about S R Polymers
+      <a href={`${import.meta.env.BASE_URL}products/unsaturated-polyester-resin`}>
+        View Unsaturated Polyester Resin
+      </a>
+    </div>
+  </Container>
+</section>
+
+<!-- ================= ETHYLENE GLYCOLS ================= -->
+<section class="prod-group prod-group-alt" id="glycols">
+  <Container>
+    <span class="eyebrow">S R INDUSTRIES &amp; S R PLAST</span>
+    <h2>Ethylene Glycols</h2>
+
+    <div class="category-grid">
+      <div class="category-block">
+        <h3>Distilled</h3>
+        <ul>
+          {distilledGlycols.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+
+      <div class="category-block">
+        <h3>Pure</h3>
+        <ul>
+          {pureGlycols.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <div class="group-link">
+      <a href={`${import.meta.env.BASE_URL}products/ethylene-glycols`}>
+        View Ethylene Glycols
+      </a>
+    </div>
+  </Container>
+</section>
+
+<!-- ================= CHLORINATED SOLVENTS ================= -->
+<section class="prod-group" id="chlorinated">
+  <Container>
+    <span class="eyebrow">S R INDUSTRIES &amp; S R PLAST</span>
+    <h2>Chlorinated Solvents</h2>
+
+    <div class="category-grid">
+      <div class="category-block">
+        <h3>Distilled</h3>
+        <ul>
+          {distilledChlorinated.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+
+      <div class="category-block">
+        <h3>Pure</h3>
+        <ul>
+          {pureChlorinated.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <div class="group-link">
+      <a href={`${import.meta.env.BASE_URL}products/chlorinated-solvents`}>
+        View Chlorinated Solvents
       </a>
     </div>
   </Container>
@@ -116,10 +117,7 @@ const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
 
 </BaseLayout>
 
-
 <style>
-
-/* ---------- shared ---------- */
 
 .eyebrow{
   display:inline-block;
@@ -140,8 +138,6 @@ const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
   max-width:64ch;
 }
 
-/* ---------- intro ---------- */
-
 .prod-intro{
   padding:7rem 0 5rem;
 }
@@ -153,8 +149,6 @@ const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
   line-height:1.05;
   color:var(--color-primary);
 }
-
-/* ---------- groups ---------- */
 
 .prod-group{
   padding:5rem 0;
@@ -172,8 +166,6 @@ const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
   color:var(--color-primary);
 }
 
-/* ---------- distilled / pure ---------- */
-
 .category-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -182,24 +174,44 @@ const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
 
 .category-block{
   padding:2.5rem;
-  background:var(--color-bg);
+  background:var(--color-white);
   border:1px solid var(--color-border);
   border-radius:var(--radius);
-  scroll-margin-top:130px;
 }
 
 .category-block h3{
-  margin:0 0 1.75rem;
+  margin:0 0 1.5rem;
   font-family:var(--font-heading);
-  font-size:1.75rem;
+  font-size:1.5rem;
   color:var(--color-primary);
 }
 
-.category-group{
-  margin-bottom:1.5rem;
+.category-block ul{
+  margin:0;
+  padding:0;
+  list-style:none;
 }
 
-.category-group:last-child{
+.category-block li{
+  padding:.4rem 0;
+  font-size:1rem;
+  color:var(--color-text);
+  border-bottom:1px solid var(--color-border);
+}
+
+.category-block li:last-child{
+  border-bottom:none;
+}
+
+.product-block{
+  padding:2.5rem;
+  background:var(--color-white);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius);
+  max-width:560px;
+}
+
+.category-group{
   margin-bottom:0;
 }
 
@@ -230,28 +242,8 @@ const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
   border-bottom:none;
 }
 
-/* ---------- polymers product block ---------- */
-
-.product-block{
-  padding:2.5rem;
-  background:var(--color-white);
-  border:1px solid var(--color-border);
-  border-radius:var(--radius);
-  max-width:560px;
-  scroll-margin-top:130px;
-}
-
-.product-block h3{
-  margin:0 0 1.75rem;
-  font-family:var(--font-heading);
-  font-size:1.75rem;
-  color:var(--color-primary);
-}
-
-/* ---------- group link ---------- */
-
 .group-link{
-  margin-top:3rem;
+  margin-top:2.5rem;
 }
 
 .group-link a{
@@ -267,9 +259,7 @@ const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
   color:var(--color-accent);
 }
 
-/* ---------- responsive ---------- */
-
-@media(max-width:1000px){
+@media(max-width:900px){
   .category-grid{
     grid-template-columns:1fr;
   }

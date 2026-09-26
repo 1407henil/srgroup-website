@@ -57,9 +57,17 @@ const isActive = (href: string) =>
         </div>
       </div>
 
-      <a href={`${base}products`} class:list={[{ active: isActive("/products") }]}>
-        Products
-      </a>
+            <div class="nav-item has-dropdown">
+        <a href={`${base}products`} class:list={[{ active: isActive("/products") }]}>
+          Products
+        </a>
+
+        <div class="dropdown">
+          <a href={`${base}products/distilled-range`}>Distilled Range</a>
+          <a href={`${base}products/pure-range`}>Pure Range</a>
+          <a href={`${base}products/unsaturated-polyester-resin`}>Unsaturated Polyester Resin</a>
+        </div>
+      </div>
 
       <a href={`${base}contact`} class:list={[{ active: isActive("/contact") }]}>
         Contact

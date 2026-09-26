@@ -2,363 +2,285 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Container from "../components/ui/Container.astro";
 
-const products = [
-  {
-    category: "Industrial Solvent",
-    title: "SRSolv",
-    description:
-      "High-performance industrial degreasing solvent developed as an economical alternative for heavy-duty metal cleaning applications.",
-    applications: [
-      "Metal Degreasing",
-      "Bearing Cleaning",
-      "Machine Components",
-      "Surface Preparation"
-    ],
-    packaging: "40 kg Carboy • 300 kg HDPE Drum"
-  },
-  {
-    category: "Industrial Chemical",
-    title: "Distilled Mono Ethylene Glycol (MEG)",
-    description:
-      "Purified Mono Ethylene Glycol manufactured with consistent quality for industrial processing applications.",
-    applications: [
-      "Chemical Processing",
-      "Industrial Manufacturing",
-      "Cooling Systems",
-      "General Industrial Use"
-    ],
-    packaging: "230 kg Drum • Bulk Supply"
-  },
-  {
-    category: "Industrial Chemical",
-    title: "Distilled Diethylene Glycol (DEG)",
-    description:
-      "High-quality distilled Diethylene Glycol manufactured for customers requiring reliable purity and consistent performance.",
-    applications: [
-      "Chemical Manufacturing",
-      "Industrial Processing",
-      "Solvent Applications",
-      "Process Industries"
-    ],
-    packaging: "230 kg Drum • Bulk Supply"
-  },
-  {
-    category: "Composite Resin",
-    title: "Unsaturated Polyester Resin",
-    description:
-      "Premium resin manufactured for FRP and composite industries with dependable quality and batch consistency.",
-    applications: [
-      "FRP Products",
-      "Composite Components",
-      "Industrial Moulding",
-      "General Composites"
-    ],
-    packaging: "HDPE Drum"
-  }
-];
+const distilled = {
+  glycols: ["Mono Ethylene Glycol (MEG)", "Diethylene Glycol (DEG)", "Triethylene Glycol (TEG)"],
+  chlorinated: ["Trichloroethylene (TCE)", "EDC LE"],
+};
+
+const pure = {
+  glycols: ["Mono Ethylene Glycol (MEG)", "Diethylene Glycol (DEG)"],
+  chlorinated: ["SRSolv"],
+};
+
+const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
 ---
 
 <BaseLayout
   title="Products | S R Group"
-  description="Industrial chemical products manufactured by S R Group."
+  description="The full product range across S R Industries, S R Plast, and S R Polymers — distilled and pure glycols and chlorinated solvents, and Unsaturated Polyester Resin."
 >
 
-<section class="hero">
-
+<!-- ================= INTRO ================= -->
+<section class="prod-intro">
   <Container>
-
-    <span class="eyebrow">
-      PRODUCTS
-    </span>
-
-    <h1>
-      Industrial Chemical<br />
-      Product Portfolio
-    </h1>
-
-    <p>
-      Reliable chemical manufacturing backed by decades of industrial
-      experience and consistent quality.
+    <span class="eyebrow">PRODUCT CATALOGUE</span>
+    <h1>Our Product Range</h1>
+    <p class="lead">
+      Chemicals manufactured and supplied across S R Group — distilled and
+      pure glycols and chlorinated solvents from S R Industries and S R
+      Plast, and Unsaturated Polyester Resin from S R Polymers.
     </p>
-
   </Container>
-
 </section>
 
-<section class="products">
-
+<!-- ================= S R INDUSTRIES & S R PLAST ================= -->
+<section class="prod-group">
   <Container>
+    <span class="eyebrow">S R INDUSTRIES &amp; S R PLAST</span>
+    <h2>Glycols &amp; Chlorinated Solvents</h2>
 
-    {
-      products.map((product) => (
+    <div class="category-grid">
+      <div class="category-block" id="distilled">
+        <h3>Distilled</h3>
 
-        <article class="card">
-
-          <span class="category">
-            {product.category}
-          </span>
-
-          <h2>
-            {product.title}
-          </h2>
-
-          <p>
-            {product.description}
-          </p>
-
-          <div class="divider"></div>
-
-          <h3>
-            Applications
-          </h3>
-
+        <div class="category-group">
+          <span class="group-label">Glycols</span>
           <ul>
-
-            {
-              product.applications.map((item) => (
-
-                <li>{item}</li>
-
-              ))
-            }
-
+            {distilled.glycols.map((item) => <li>{item}</li>)}
           </ul>
+        </div>
 
-          <div class="packaging">
+        <div class="category-group">
+          <span class="group-label">Chlorinated</span>
+          <ul>
+            {distilled.chlorinated.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
 
-            <span>Packaging</span>
+      <div class="category-block" id="pure">
+        <h3>Pure</h3>
 
-            <strong>{product.packaging}</strong>
+        <div class="category-group">
+          <span class="group-label">Glycols</span>
+          <ul>
+            {pure.glycols.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
 
-          </div>
+        <div class="category-group">
+          <span class="group-label">Chlorinated</span>
+          <ul>
+            {pure.chlorinated.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
 
-        </article>
-
-      ))
-    }
-
+    <div class="group-link">
+      <a href={`${import.meta.env.BASE_URL}companies/industries`}>
+        Learn more about S R Industries &amp; S R Plast
+      </a>
+    </div>
   </Container>
-
 </section>
 
-<section class="cta">
-
+<!-- ================= S R POLYMERS ================= -->
+<section class="prod-group prod-group-alt">
   <Container>
+    <span class="eyebrow">S R POLYMERS</span>
+    <h2>Unsaturated Polyester Resin</h2>
 
-    <h2>
-      Looking for product specifications?
-    </h2>
+    <div class="product-block" id="polymers">
+      <h3>Unsaturated Polyester Resin</h3>
 
-    <p>
-      Contact our team for technical data sheets, packaging information and commercial enquiries.
-    </p>
+      <div class="category-group">
+        <span class="group-label">Applications</span>
+        <ul>
+          {applications.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
 
-    <a
-      href={`${import.meta.env.BASE_URL}contact`}
-      class="button"
-    >
-      Contact Us
-    </a>
+      <!-- GRADE LIST: replace/extend with specific grade names once provided -->
+    </div>
 
+    <div class="group-link">
+      <a href={`${import.meta.env.BASE_URL}companies/polymers`}>
+        Learn more about S R Polymers
+      </a>
+    </div>
   </Container>
-
 </section>
 
 </BaseLayout>
 
+
 <style>
 
-.hero{
-padding:8rem 0 6rem;
-text-align:center;
-}
+/* ---------- shared ---------- */
 
 .eyebrow{
-display:inline-block;
-margin-bottom:1rem;
-font-size:.8rem;
-letter-spacing:.28em;
-text-transform:uppercase;
-font-weight:600;
-color:var(--color-accent);
+  display:inline-block;
+  margin-bottom:1.25rem;
+  font-size:.95rem;
+  font-weight:700;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+  border-left:3px solid var(--color-accent);
+  padding-left:.75rem;
 }
 
-.hero h1{
-margin:0;
-font-family:var(--font-heading);
-font-size:clamp(3rem,5vw,4.6rem);
-line-height:1.1;
-color:var(--color-primary);
+.lead{
+  font-size:1.1rem;
+  line-height:1.9;
+  color:var(--color-text-light);
+  max-width:64ch;
 }
 
-.hero p{
-max-width:720px;
-margin:2rem auto 0;
-font-size:1.15rem;
-line-height:2;
-color:var(--color-text-light);
+/* ---------- intro ---------- */
+
+.prod-intro{
+  padding:7rem 0 5rem;
 }
 
-.products{
-padding:2rem 0 7rem;
+.prod-intro h1{
+  margin:0 0 1.5rem;
+  font-family:var(--font-heading);
+  font-size:clamp(2.8rem,5vw,4.4rem);
+  line-height:1.05;
+  color:var(--color-primary);
 }
 
-.products .container{
-display:grid;
-gap:2rem;
+/* ---------- groups ---------- */
+
+.prod-group{
+  padding:5rem 0;
+  scroll-margin-top:130px;
 }
 
-.card{
-padding:3.5rem;
-background:#fff;
-border:1px solid var(--color-border);
-border-radius:22px;
-transition:.3s;
+.prod-group-alt{
+  background:#F5F1E9;
 }
 
-.card:hover{
-transform:translateY(-4px);
-box-shadow:0 18px 40px rgba(0,0,0,.05);
+.prod-group h2{
+  margin:.5rem 0 3rem;
+  font-family:var(--font-heading);
+  font-size:clamp(2.2rem,3.5vw,3.2rem);
+  color:var(--color-primary);
 }
 
-.category{
-display:inline-block;
-margin-bottom:1rem;
-font-size:.75rem;
-letter-spacing:.24em;
-text-transform:uppercase;
-font-weight:600;
-color:var(--color-accent);
+/* ---------- distilled / pure ---------- */
+
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:3rem;
 }
 
-.card h2{
-margin:0;
-font-size:2rem;
-font-family:var(--font-heading);
-color:var(--color-primary);
+.category-block{
+  padding:2.5rem;
+  background:var(--color-bg);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius);
+  scroll-margin-top:130px;
 }
 
-.card p{
-margin:1.5rem 0;
-line-height:2;
-color:var(--color-text-light);
+.category-block h3{
+  margin:0 0 1.75rem;
+  font-family:var(--font-heading);
+  font-size:1.75rem;
+  color:var(--color-primary);
 }
 
-.divider{
-width:70px;
-height:1px;
-background:var(--color-accent);
-margin:2rem 0;
+.category-group{
+  margin-bottom:1.5rem;
 }
 
-.card h3{
-margin:0 0 1rem;
-font-size:1rem;
-letter-spacing:.15em;
-text-transform:uppercase;
-color:var(--color-primary);
+.category-group:last-child{
+  margin-bottom:0;
 }
 
-.card ul{
-margin:0;
-padding:0;
-list-style:none;
-display:grid;
-grid-template-columns:repeat(2,minmax(220px,1fr));
-gap:1rem;
+.group-label{
+  display:block;
+  margin-bottom:.6rem;
+  font-size:.7rem;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--color-accent);
 }
 
-.card li{
-position:relative;
-padding-left:1.2rem;
+.category-group ul{
+  margin:0;
+  padding:0;
+  list-style:none;
 }
 
-.card li::before{
-content:"";
-position:absolute;
-left:0;
-top:.72rem;
-width:6px;
-height:6px;
-border-radius:50%;
-background:var(--color-accent);
+.category-group li{
+  padding:.4rem 0;
+  font-size:1rem;
+  color:var(--color-text);
+  border-bottom:1px solid var(--color-border);
 }
 
-.packaging{
-margin-top:2.5rem;
-padding-top:1.5rem;
-border-top:1px solid var(--color-border);
+.category-group li:last-child{
+  border-bottom:none;
 }
 
-.packaging span{
-display:block;
-margin-bottom:.4rem;
-font-size:.8rem;
-letter-spacing:.12em;
-text-transform:uppercase;
-color:var(--color-accent);
+/* ---------- polymers product block ---------- */
+
+.product-block{
+  padding:2.5rem;
+  background:var(--color-white);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius);
+  max-width:560px;
+  scroll-margin-top:130px;
 }
 
-.packaging strong{
-color:var(--color-primary);
-font-weight:600;
+.product-block h3{
+  margin:0 0 1.75rem;
+  font-family:var(--font-heading);
+  font-size:1.75rem;
+  color:var(--color-primary);
 }
 
-.cta{
-padding:0 0 8rem;
-text-align:center;
+/* ---------- group link ---------- */
+
+.group-link{
+  margin-top:3rem;
 }
 
-.cta h2{
-margin:0;
-font-family:var(--font-heading);
-font-size:2.5rem;
-color:var(--color-primary);
+.group-link a{
+  font-size:.95rem;
+  font-weight:600;
+  color:var(--color-primary);
+  text-decoration:none;
+  border-bottom:1px solid var(--color-accent);
+  padding-bottom:2px;
 }
 
-.cta p{
-max-width:650px;
-margin:1.5rem auto 2.5rem;
-line-height:1.9;
-color:var(--color-text-light);
+.group-link a:hover{
+  color:var(--color-accent);
 }
 
-.button{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:1rem 2.5rem;
-border-radius:999px;
-border:1px solid var(--color-accent);
-text-decoration:none;
-font-weight:600;
-color:var(--color-primary);
-transition:.3s;
+/* ---------- responsive ---------- */
+
+@media(max-width:1000px){
+  .category-grid{
+    grid-template-columns:1fr;
+  }
 }
 
-.button:hover{
-background:var(--color-accent);
-color:#fff;
-}
+@media(max-width:600px){
+  .prod-intro{
+    padding:5rem 0 4rem;
+  }
 
-@media(max-width:900px){
-
-.hero{
-padding:6rem 0 5rem;
-}
-
-.card{
-padding:2.25rem;
-}
-
-.card ul{
-grid-template-columns:1fr;
-}
-
-.cta h2{
-font-size:2rem;
-}
-
+  .prod-group{
+    padding:4rem 0;
+  }
 }
 
 </style>

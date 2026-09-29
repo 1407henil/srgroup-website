@@ -30,13 +30,24 @@
     system-ui,
     sans-serif;
 
-  /* Layout */
+   /* Layout */
 
   --container: 1200px;
 
-  --section-space: 7rem;
+  --section-space: 4rem;
+
+  --card-pad: 1.75rem;
 
   --radius: 6px;
 
   --transition: .3s ease;
+
+  /* Type Scale */
+
+  --h1-size: clamp(2rem, 3.2vw, 2.75rem);
+  --h2-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  --h3-size: 1.4rem;
+
+  --lead-size: 1.05rem;
+  --lead-line: 1.7;
 }

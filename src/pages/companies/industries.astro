@@ -206,6 +206,7 @@ const capabilities = [
 
 <style>
 
+
 /* ---------- shared ---------- */
 
 .eyebrow{
@@ -221,8 +222,8 @@ const capabilities = [
 }
 
 .lead{
-  font-size:1.1rem;
-  line-height:1.9;
+  font-size:var(--lead-size);
+  line-height:var(--lead-line);
   color:var(--color-text-light);
 }
 
@@ -271,7 +272,7 @@ const capabilities = [
 /* ---------- statement ---------- */
 
 .ind-statement{
-  padding:7rem 0 6rem;
+  padding:4rem 0 3.5rem;
 }
 
 .ind-statement-grid{
@@ -284,22 +285,22 @@ const capabilities = [
 .ind-statement h1{
   margin:0;
   font-family:var(--font-heading);
-  font-size:clamp(2.8rem,5vw,4.6rem);
-  line-height:1.05;
+  font-size:var(--h1-size);
+  line-height:1.1;
   color:var(--color-primary);
 }
 
 .ind-statement .lead{
-  margin:1.75rem 0 0;
+  margin:1.25rem 0 0;
   max-width:52ch;
 }
 
 .facts{
-  margin-top:3rem;
+  margin-top:2.25rem;
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:1.5rem;
-  padding-top:2rem;
+  padding-top:1.5rem;
   border-top:1px solid var(--color-border);
 }
 
@@ -326,7 +327,7 @@ const capabilities = [
 /* ---------- story ---------- */
 
 .ind-story{
-  padding:6rem 0;
+  padding:3.5rem 0;
   background:#F5F1E9;
 }
 
@@ -340,15 +341,15 @@ const capabilities = [
 .ind-story-text h2{
   margin:0;
   font-family:var(--font-heading);
-  font-size:clamp(2.2rem,3.5vw,3.2rem);
-  line-height:1.15;
+  font-size:var(--h2-size);
+  line-height:1.2;
   color:var(--color-primary);
 }
 
 .ind-story-text p{
-  margin:1.5rem 0 0;
-  font-size:1.05rem;
-  line-height:1.9;
+  margin:1.25rem 0 0;
+  font-size:1rem;
+  line-height:1.75;
   color:var(--color-text-light);
   max-width:60ch;
 }
@@ -356,13 +357,13 @@ const capabilities = [
 /* ---------- proof ---------- */
 
 .ind-proof{
-  padding:7rem 0;
+  padding:4rem 0;
 }
 
 .ind-proof h2{
-  margin:0 0 3.5rem;
+  margin:0 0 2.25rem;
   font-family:var(--font-heading);
-  font-size:clamp(2.2rem,3.5vw,3.2rem);
+  font-size:var(--h2-size);
   color:var(--color-primary);
 }
 
@@ -375,7 +376,7 @@ const capabilities = [
 }
 
 .capability-card{
-  padding:2.5rem;
+  padding:var(--card-pad);
   background:var(--color-bg);
   border-left:3px solid transparent;
   transition:var(--transition);
@@ -387,60 +388,60 @@ const capabilities = [
 }
 
 .capability-card h3{
-  margin:0 0 .85rem;
+  margin:0 0 .6rem;
   font-family:var(--font-heading);
-  font-size:1.4rem;
+  font-size:var(--h3-size);
   color:var(--color-primary);
 }
 
 .capability-card p{
   margin:0;
-  font-size:.98rem;
-  line-height:1.7;
+  font-size:.95rem;
+  line-height:1.65;
   color:var(--color-text-light);
 }
 
 /* ---------- products ---------- */
 
 .ind-products{
-  padding:7rem 0;
+  padding:4rem 0;
   background:#F5F1E9;
 }
 
 .ind-products h2{
   margin:.5rem 0 0;
   font-family:var(--font-heading);
-  font-size:clamp(2.2rem,3.5vw,3.2rem);
+  font-size:var(--h2-size);
   color:var(--color-primary);
 }
 
 .ind-products > :global(.container) > .lead{
-  margin:1.25rem 0 3.5rem;
+  margin:1rem 0 2.5rem;
   max-width:60ch;
 }
 
 .category-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:3rem;
+  gap:2rem;
 }
 
 .category-block{
-  padding:2.5rem;
+  padding:var(--card-pad);
   background:var(--color-bg);
   border:1px solid var(--color-border);
   border-radius:var(--radius);
 }
 
 .category-block h3{
-  margin:0 0 1.75rem;
+  margin:0 0 1.25rem;
   font-family:var(--font-heading);
-  font-size:1.75rem;
+  font-size:var(--h3-size);
   color:var(--color-primary);
 }
 
 .category-group{
-  margin-bottom:1.5rem;
+  margin-bottom:1.25rem;
 }
 
 .category-group:last-child{
@@ -475,28 +476,28 @@ const capabilities = [
 }
 
 .catalogue-link{
-  margin-top:3.5rem;
+  margin-top:2.5rem;
   text-align:center;
 }
 
 /* ---------- cta ---------- */
 
 .ind-cta{
-  padding:7rem 0 8rem;
+  padding:4rem 0 4.5rem;
   text-align:center;
 }
 
 .ind-cta h2{
   margin:0;
   font-family:var(--font-heading);
-  font-size:clamp(2.2rem,4vw,3.4rem);
+  font-size:var(--h2-size);
   color:var(--color-primary);
 }
 
 .ind-cta p{
   max-width:640px;
-  margin:1.5rem auto 2.5rem;
-  line-height:1.9;
+  margin:1.25rem auto 2rem;
+  line-height:1.75;
   color:var(--color-text-light);
 }
 
@@ -535,13 +536,13 @@ const capabilities = [
 
 @media(max-width:600px){
   .ind-statement{
-    padding:5rem 0 4rem;
+    padding:3rem 0 2.5rem;
   }
 
   .ind-story,
   .ind-proof,
   .ind-products{
-    padding:5rem 0;
+    padding:3rem 0;
   }
 
   .capability-grid{
@@ -549,8 +550,7 @@ const capabilities = [
   }
 
   .ind-cta{
-    padding:5rem 0 6rem;
+    padding:3rem 0 3.5rem;
   }
 }
-
 </style>

@@ -46,6 +46,7 @@ const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
 
 <style>
 
+
 .eyebrow{
   display:inline-block;
   margin-bottom:1.25rem;
@@ -59,30 +60,30 @@ const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
 }
 
 .lead{
-  font-size:1.1rem;
-  line-height:1.9;
+  font-size:var(--lead-size);
+  line-height:var(--lead-line);
   color:var(--color-text-light);
   max-width:60ch;
 }
 
 .range-intro{
-  padding:7rem 0 4rem;
+  padding:4rem 0 2.5rem;
 }
 
 .range-intro h1{
-  margin:0 0 1.5rem;
+  margin:0 0 1.25rem;
   font-family:var(--font-heading);
-  font-size:clamp(2.6rem,5vw,4rem);
-  line-height:1.05;
+  font-size:var(--h1-size);
+  line-height:1.1;
   color:var(--color-primary);
 }
 
 .range-body{
-  padding:0 0 6rem;
+  padding:0 0 3.5rem;
 }
 
 .category-block{
-  padding:2.5rem;
+  padding:var(--card-pad);
   background:var(--color-bg);
   border:1px solid var(--color-border);
   border-radius:var(--radius);
@@ -121,7 +122,7 @@ const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
 }
 
 .group-link{
-  margin-top:2.5rem;
+  margin-top:2rem;
 }
 
 .group-link a{
@@ -139,8 +140,7 @@ const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
 
 @media(max-width:600px){
   .range-intro{
-    padding:5rem 0 3rem;
+    padding:3rem 0 2rem;
   }
 }
-
 </style>

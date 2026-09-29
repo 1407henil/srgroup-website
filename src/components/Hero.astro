@@ -32,7 +32,7 @@ import Button from "./Button.astro";
 
 <style>
 .hero{
-  padding:8rem 0;
+  padding:4rem 0;
 }
 
 .hero-content{
@@ -52,19 +52,21 @@ import Button from "./Button.astro";
 }
 
 .hero h1{
-  margin-bottom:1.5rem;
+  margin-bottom:1.25rem;
 
-  font-size:clamp(3rem,6vw,5rem);
+  font-size:var(--h1-size);
 
-  line-height:1.05;
+  line-height:1.1;
 }
 
 .intro{
   max-width:650px;
 
-  margin-bottom:2.5rem;
+  margin-bottom:1.75rem;
 
-  font-size:1.15rem;
+  font-size:var(--lead-size);
+
+  line-height:var(--lead-line);
 
   color:var(--color-text-light);
 }
@@ -76,4 +78,5 @@ import Button from "./Button.astro";
 
   flex-wrap:wrap;
 }
+
 </style>

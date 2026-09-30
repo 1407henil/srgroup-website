@@ -2,8 +2,55 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Container from "../../components/ui/Container.astro";
 
-const distilled = ["Mono Ethylene Glycol (MEG)", "Diethylene Glycol (DEG)", "Triethylene Glycol (TEG)"];
-const pure = ["Mono Ethylene Glycol (MEG)", "Diethylene Glycol (DEG)"];
+import iconSnowflake from "lucide-static/icons/snowflake.svg?raw";
+import iconRecycle from "lucide-static/icons/recycle.svg?raw";
+import iconThermometer from "lucide-static/icons/thermometer.svg?raw";
+import iconWind from "lucide-static/icons/wind.svg?raw";
+import iconLayers from "lucide-static/icons/layers.svg?raw";
+import iconDroplet from "lucide-static/icons/droplet.svg?raw";
+import iconFlask from "lucide-static/icons/flask-conical.svg?raw";
+import iconPrinter from "lucide-static/icons/printer.svg?raw";
+import iconFlame from "lucide-static/icons/flame.svg?raw";
+import iconPalette from "lucide-static/icons/palette.svg?raw";
+
+const products = [
+  {
+    name: "Monoethylene Glycol (MEG)",
+    availability: "Distilled · Pure",
+    description:
+      "A clear, colourless, low-viscosity liquid, virtually odourless and fully miscible with water. Used as a base material across a wide range of industrial processes.",
+    applications: [
+      { label: "Antifreeze & Coolants", icon: iconSnowflake },
+      { label: "Polyester (PET) Production", icon: iconRecycle },
+      { label: "Heat Transfer Fluids", icon: iconThermometer },
+      { label: "De-icing Fluids", icon: iconWind },
+    ],
+  },
+  {
+    name: "Diethylene Glycol (DEG)",
+    availability: "Distilled · Pure",
+    description:
+      "A clear, practically colourless, hygroscopic liquid with a higher boiling point than MEG. Commonly used as a chemical intermediate and processing aid.",
+    applications: [
+      { label: "Unsaturated Polyester Resin Production", icon: iconLayers },
+      { label: "Textile & Paper Humectant", icon: iconDroplet },
+      { label: "Plasticizer Intermediate", icon: iconFlask },
+      { label: "Printing Ink Solvent", icon: iconPrinter },
+    ],
+  },
+  {
+    name: "Triethylene Glycol (TEG)",
+    availability: "Distilled only",
+    description:
+      "A clear, practically colourless and odourless hygroscopic liquid. Valued primarily for its drying and dehydrating properties.",
+    applications: [
+      { label: "Natural Gas Dehydration", icon: iconFlame },
+      { label: "HVAC & Air-Conditioning Fluids", icon: iconWind },
+      { label: "Textile Dyeing & Printing", icon: iconPalette },
+      { label: "Plasticizer & Humectant Use", icon: iconDroplet },
+    ],
+  },
+];
 ---
 
 <BaseLayout
@@ -24,20 +71,30 @@ const pure = ["Mono Ethylene Glycol (MEG)", "Diethylene Glycol (DEG)"];
 
 <section class="range-body">
   <Container>
-    <div class="category-grid">
-      <div class="category-block">
-        <h3>Distilled</h3>
-        <ul>
-          {distilled.map((item) => <li>{item}</li>)}
-        </ul>
-      </div>
+    <div class="product-list">
+      {products.map((product) => (
+        <div class="product-card">
+          <div class="product-header">
+            <h3>{product.name}</h3>
+            <span class="availability">{product.availability}</span>
+          </div>
 
-      <div class="category-block">
-        <h3>Pure</h3>
-        <ul>
-          {pure.map((item) => <li>{item}</li>)}
-        </ul>
-      </div>
+          <p class="description">{product.description}</p>
+
+          <span class="group-label">Applications</span>
+
+          <div class="app-grid">
+            {product.applications.map((app) => (
+              <div class="app-item">
+                <span class="app-icon" set:html={app.icon} />
+                <span class="app-label">{app.label}</span>
+              </div>
+            ))}
+          </div>
+
+          <p class="more-note">...and many more</p>
+        </div>
+      ))}
     </div>
 
     <!-- Detailed specifications for each product to be added later -->
@@ -53,7 +110,6 @@ const pure = ["Mono Ethylene Glycol (MEG)", "Diethylene Glycol (DEG)"];
 </BaseLayout>
 
 <style>
-
 
 .eyebrow{
   display:inline-block;
@@ -90,45 +146,99 @@ const pure = ["Mono Ethylene Glycol (MEG)", "Diethylene Glycol (DEG)"];
   padding:0 0 3.5rem;
 }
 
-.category-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:2rem;
+.product-list{
+  display:flex;
+  flex-direction:column;
+  gap:1.5rem;
 }
 
-.category-block{
+.product-card{
   padding:var(--card-pad);
   background:var(--color-bg);
   border:1px solid var(--color-border);
   border-radius:var(--radius);
 }
 
-.category-block h3{
-  margin:0 0 1.25rem;
+.product-header{
+  display:flex;
+  align-items:baseline;
+  gap:1rem;
+  flex-wrap:wrap;
+  margin-bottom:1rem;
+}
+
+.product-header h3{
+  margin:0;
   font-family:var(--font-heading);
   font-size:var(--h3-size);
   color:var(--color-primary);
 }
 
-.category-block ul{
-  margin:0;
-  padding:0;
-  list-style:none;
+.availability{
+  font-size:.7rem;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--color-text-light);
 }
 
-.category-block li{
-  padding:.4rem 0;
+.description{
+  margin:0 0 1.75rem;
   font-size:1rem;
-  color:var(--color-text);
-  border-bottom:1px solid var(--color-border);
+  line-height:1.75;
+  color:var(--color-text-light);
+  max-width:60ch;
 }
 
-.category-block li:last-child{
-  border-bottom:none;
+.group-label{
+  display:block;
+  margin-bottom:1rem;
+  font-size:.7rem;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+}
+
+.app-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.5rem;
+}
+
+.app-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:.6rem;
+}
+
+.app-icon{
+  display:inline-flex;
+  color:var(--color-primary);
+}
+
+.app-icon :global(svg){
+  width:22px;
+  height:22px;
+}
+
+.app-label{
+  font-size:.8rem;
+  line-height:1.35;
+  color:var(--color-text);
+}
+
+.more-note{
+  margin:1.5rem 0 0;
+  font-size:.85rem;
+  font-style:italic;
+  color:var(--color-text-light);
 }
 
 .group-link{
-  margin-top:2rem;
+  margin-top:2.5rem;
 }
 
 .group-link a{
@@ -144,9 +254,9 @@ const pure = ["Mono Ethylene Glycol (MEG)", "Diethylene Glycol (DEG)"];
   color:var(--color-accent);
 }
 
-@media(max-width:900px){
-  .category-grid{
-    grid-template-columns:1fr;
+@media(max-width:700px){
+  .app-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 }
 
@@ -155,4 +265,5 @@ const pure = ["Mono Ethylene Glycol (MEG)", "Diethylene Glycol (DEG)"];
     padding:3rem 0 2rem;
   }
 }
+
 </style>

@@ -62,7 +62,14 @@ const pureChlorinated = ["SRSolv"];
         </ul>
       </div>
 
-      <!-- Grade list to be added once provided -->
+           <div class="category-group">
+        <span class="group-label">Grades</span>
+        <ul class="grade-list">
+          {grades.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+
+      <!-- Detailed specifications per grade to be added later -->
     </div>
 
     <div class="group-link">
@@ -223,15 +230,25 @@ const pureChlorinated = ["SRSolv"];
 }
 
 .product-block{
-  padding:var(--card-pad);
-  background:var(--color-white);
-  border:1px solid var(--color-border);
-  border-radius:var(--radius);
-  max-width:560px;
+padding:var(--card-pad);
+background:var(--color-white);
+border:1px solid var(--color-border);
+border-radius:var(--radius);
+max-width:640px;
 }
 
 .category-group{
-  margin-bottom:0;
+margin-bottom:1.5rem;
+}
+
+.category-group:last-child{
+margin-bottom:0;
+}
+
+.grade-list{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:0 2rem;
 }
 
 .group-label{
@@ -291,6 +308,10 @@ const pureChlorinated = ["SRSolv"];
 
   .prod-group{
     padding:2.5rem 0;
+  }
+
+  .grade-list{
+    grid-template-columns:1fr;
   }
 }
 </style>

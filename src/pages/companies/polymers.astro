@@ -30,6 +30,24 @@ const capabilities = [
 ];
 
 const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
+
+const grades = [
+  "GP",
+  "GP Commercial",
+  "Marble",
+  "Sheet",
+  "Button",
+  "FRP",
+  "Lamination",
+  "Pultrusion",
+  "SMC",
+  "DMC",
+  "Marine / Boat",
+  "Orthophthalic (PTA Based)",
+  "Isophthalic (PTA Based)",
+  "Ortho Gelcoat",
+  "ISO Gelcoat",
+];
 ---
 
 <BaseLayout
@@ -143,7 +161,14 @@ const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
         </ul>
       </div>
 
-      <!-- GRADE LIST: replace/extend with specific grade names once provided -->
+            <div class="category-group">
+        <span class="group-label">Grades</span>
+        <ul class="grade-list">
+          {grades.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+
+      <!-- Detailed specifications per grade to be added later -->
     </div>
 
     <div class="catalogue-link">
@@ -398,7 +423,7 @@ const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
   background:var(--color-bg);
   border:1px solid var(--color-border);
   border-radius:var(--radius);
-  max-width:560px;
+  max-width:640px;
 }
 
 .product-block h3{
@@ -409,7 +434,17 @@ const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
 }
 
 .category-group{
+  margin-bottom:1.5rem;
+}
+
+.category-group:last-child{
   margin-bottom:0;
+}
+
+.grade-list{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:0 2rem;
 }
 
 .group-label{
@@ -512,5 +547,10 @@ const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
   .poly-cta{
     padding:3rem 0 3.5rem;
   }
+
+  .grade-list{
+    grid-template-columns:1fr;
+  }
 }
+
 </style>

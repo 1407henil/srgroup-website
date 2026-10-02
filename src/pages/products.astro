@@ -2,7 +2,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Container from "../components/ui/Container.astro";
 
-const applications = ["Boats", "Quartz & Marble", "FRP", "Roofing Sheets"];
 
 const grades = [
   "GP",
@@ -55,15 +54,9 @@ const pureChlorinated = ["SRSolv"];
     <h2>Unsaturated Polyester Resin</h2>
 
     <div class="product-block">
-      <div class="category-group">
-        <span class="group-label">Applications</span>
-        <ul>
-          {applications.map((item) => <li>{item}</li>)}
-        </ul>
-      </div>
-
-           <div class="category-group">
+            <div class="category-group">
         <span class="group-label">Grades</span>
+
         <ul class="grade-list">
           {grades.map((item) => <li>{item}</li>)}
         </ul>

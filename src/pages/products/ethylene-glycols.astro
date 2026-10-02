@@ -2,60 +2,99 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Container from "../../components/ui/Container.astro";
 
-const iconSnowflake = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="M12 2v20"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/><path d="m16 20-4-4-4 4"/><path d="m8 4 4 4 4-4"/></svg>`;
-const iconRecycle = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5"/><path d="M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12"/><path d="m14 16-3 3 3 3"/><path d="M8.293 13.596 7.196 9.5 3.1 10.598"/><path d="m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 11.985 3a1.784 1.784 0 0 1 1.546.888l3.943 6.843"/><path d="m13.378 9.633 4.096 1.098 1.097-4.096"/></svg>`;
-const iconThermometer = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>`;
-const iconWind = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>`;
-const iconLayers = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.66 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.66 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>`;
-const iconDroplet = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>`;
-const iconFlask = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg>`;
-const iconPrinter = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>`;
-const iconFlame = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>`;
-const iconPalette = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></svg>`;
+const applications = [
+  { label: "Automotive Antifreeze & Coolants", icon: "snowflake" },
+  { label: "Polyester (PET) Production", icon: "recycle" },
+  { label: "Heat Transfer Fluids", icon: "thermometer" },
+  { label: "De-icing Fluids", icon: "wind" },
+  { label: "Unsaturated Polyester Resin Production", icon: "layers" },
+  { label: "Textile Processing & Dyeing", icon: "shirt" },
+  { label: "Humectant & Plasticizer Use", icon: "droplet" },
+  { label: "Printing Inks", icon: "printer" },
+  { label: "Natural Gas Dehydration", icon: "flame" },
+  { label: "HVAC & Air-Conditioning", icon: "fan" },
+];
 
-const products = [
+const icons = {
+  snowflake: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="M12 2v20"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/><path d="m16 20-4-4-4 4"/><path d="m8 4 4 4 4-4"/></svg>`,
+  recycle: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5"/><path d="M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12"/><path d="m14 16-3 3 3 3"/><path d="M8.293 13.596 7.196 9.5 3.1 10.598"/><path d="m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 11.985 3a1.784 1.784 0 0 1 1.546.888l3.943 6.843"/><path d="m13.378 9.633 4.096 1.098 1.097-4.096"/></svg>`,
+  thermometer: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>`,
+  wind: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>`,
+  layers: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.66 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.66 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>`,
+  shirt: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>`,
+  droplet: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>`,
+  printer: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>`,
+  flame: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>`,
+  fan: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.827 16.379a6.082 6.082 0 0 1-8.618-7.002l5.412 1.45a6.082 6.082 0 0 1 7.002-8.618l-1.45 5.412a6.082 6.082 0 0 1 8.618 7.002l-5.412-1.45a6.082 6.082 0 0 1-7.002 8.618l1.45-5.412Z"/><path d="M12 12v.01"/></svg>`,
+};
+
+const chevron = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>`;
+
+const distilledProducts = [
   {
     name: "Monoethylene Glycol (MEG)",
-    availability: "Distilled · Pure",
     description:
       "A clear, colourless, low-viscosity liquid, virtually odourless and fully miscible with water. Used as a base material across a wide range of industrial processes.",
-    applications: [
-      { label: "Antifreeze & Coolants", icon: iconSnowflake },
-      { label: "Polyester (PET) Production", icon: iconRecycle },
-      { label: "Heat Transfer Fluids", icon: iconThermometer },
-      { label: "De-icing Fluids", icon: iconWind },
+    properties: [
+      { label: "CAS Number", value: "107-21-1" },
+      { label: "Formula", value: "C₂H₆O₂" },
+      { label: "Physical State", value: "Liquid" },
+      { label: "Appearance", value: "Colourless" },
+      { label: "Odour", value: "Odourless" },
+      { label: "Melting Point", value: "-13°C" },
+      { label: "Boiling Point", value: "197°C" },
+      { label: "Flash Point", value: "116°C" },
     ],
   },
   {
     name: "Diethylene Glycol (DEG)",
-    availability: "Distilled · Pure",
     description:
       "A clear, practically colourless, hygroscopic liquid with a higher boiling point than MEG. Commonly used as a chemical intermediate and processing aid.",
-    applications: [
-      { label: "Unsaturated Polyester Resin Production", icon: iconLayers },
-      { label: "Textile & Paper Humectant", icon: iconDroplet },
-      { label: "Plasticizer Intermediate", icon: iconFlask },
-      { label: "Printing Ink Solvent", icon: iconPrinter },
+    properties: [
+      { label: "CAS Number", value: "111-46-6" },
+      { label: "Formula", value: "C₄H₁₀O₃" },
+      { label: "Physical State", value: "Liquid" },
+      { label: "Appearance", value: "Colourless" },
+      { label: "Odour", value: "Practically odourless" },
+      { label: "Melting Point", value: "-10°C" },
+      { label: "Boiling Point", value: "245°C" },
+      { label: "Flash Point", value: "~124°C" },
     ],
   },
   {
     name: "Triethylene Glycol (TEG)",
-    availability: "Distilled only",
     description:
       "A clear, practically colourless and odourless hygroscopic liquid. Valued primarily for its drying and dehydrating properties.",
-    applications: [
-      { label: "Natural Gas Dehydration", icon: iconFlame },
-      { label: "HVAC & Air-Conditioning Fluids", icon: iconWind },
-      { label: "Textile Dyeing & Printing", icon: iconPalette },
-      { label: "Plasticizer & Humectant Use", icon: iconDroplet },
+    properties: [
+      { label: "CAS Number", value: "112-27-6" },
+      { label: "Formula", value: "C₆H₁₄O₄" },
+      { label: "Physical State", value: "Liquid" },
+      { label: "Appearance", value: "Colourless" },
+      { label: "Odour", value: "Odourless" },
+      { label: "Melting Point", value: "-7°C" },
+      { label: "Boiling Point", value: "285°C" },
+      { label: "Flash Point", value: "~177°C" },
     ],
+  },
+];
+
+const pureProducts = [
+  {
+    name: "Monoethylene Glycol (MEG)",
+    description:
+      "Sourced from Reliance Industries Limited, India's primary producer of Ethylene Glycol, and supplied in its original pure grade.",
+  },
+  {
+    name: "Diethylene Glycol (DEG)",
+    description:
+      "Sourced from Reliance Industries Limited, India's primary producer of Ethylene Glycol, and supplied in its original pure grade.",
   },
 ];
 ---
 
 <BaseLayout
   title="Ethylene Glycols | S R Group"
-  description="Distilled and pure grade Ethylene Glycols from S R Industries and S R Plast."
+  description="Distilled and pure grade Ethylene Glycols — MEG, DEG and TEG — from S R Industries and S R Plast."
 >
 
 <section class="range-intro">
@@ -63,41 +102,82 @@ const products = [
     <span class="eyebrow">S R INDUSTRIES &amp; S R PLAST</span>
     <h1>Ethylene Glycols</h1>
     <p class="lead">
-      Ethylene Glycols manufactured in both distilled and pure grades,
-      supplied to meet a range of industrial specifications.
+      Ethylene Glycols are a family of clear, colourless liquid diols —
+      Monoethylene Glycol (MEG), Diethylene Glycol (DEG), and Triethylene
+      Glycol (TEG) — manufactured and supplied by S R Industries and S R
+      Plast in both distilled and pure grades.
     </p>
   </Container>
 </section>
 
-<section class="range-body">
+<section class="range-applications">
   <Container>
-    <div class="product-list">
-      {products.map((product) => (
-        <div class="product-card">
-          <div class="product-header">
-            <h3>{product.name}</h3>
-            <span class="availability">{product.availability}</span>
-          </div>
+    <span class="eyebrow">APPLICATIONS</span>
+    <h2>Where Ethylene Glycols Are Used</h2>
 
-          <p class="description">{product.description}</p>
-
-          <span class="group-label">Applications</span>
-
-          <div class="app-grid">
-            {product.applications.map((app) => (
-              <div class="app-item">
-                <span class="app-icon" set:html={app.icon} />
-                <span class="app-label">{app.label}</span>
-              </div>
-            ))}
-          </div>
-
-          <p class="more-note">...and many more</p>
+    <div class="app-grid">
+      {applications.map((app) => (
+        <div class="app-item">
+          <span class="app-icon" set:html={icons[app.icon]} />
+          <span class="app-label">{app.label}</span>
         </div>
       ))}
     </div>
 
-    <!-- Detailed specifications for each product to be added later -->
+    <p class="more-note">...and many more</p>
+  </Container>
+</section>
+
+<section class="range-grades">
+  <Container>
+    <span class="eyebrow">PRODUCT GRADES</span>
+    <h2>Distilled &amp; Pure</h2>
+
+    <div class="accordion">
+      <details class="accordion-item" open>
+        <summary>
+          <span>Distilled</span>
+          <span class="chevron" set:html={chevron} />
+        </summary>
+
+        <div class="accordion-body">
+          {distilledProducts.map((product) => (
+            <div class="product-card">
+              <h3>{product.name}</h3>
+              <p class="description">{product.description}</p>
+
+              <span class="group-label">Physical Properties</span>
+              <div class="prop-grid">
+                {product.properties.map((prop) => (
+                  <div class="prop">
+                    <span>{prop.label}</span>
+                    <strong>{prop.value}</strong>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </details>
+
+      <details class="accordion-item">
+        <summary>
+          <span>Pure</span>
+          <span class="chevron" set:html={chevron} />
+        </summary>
+
+        <div class="accordion-body">
+          {pureProducts.map((product) => (
+            <div class="product-card">
+              <h3>{product.name}</h3>
+              <p class="description">{product.description}</p>
+            </div>
+          ))}
+        </div>
+      </details>
+    </div>
+
+    <!-- Detailed specifications / CoA to be added once available -->
 
     <div class="group-link">
       <a href={`${import.meta.env.BASE_URL}companies/industries`}>
@@ -127,7 +207,7 @@ const products = [
   font-size:var(--lead-size);
   line-height:var(--lead-line);
   color:var(--color-text-light);
-  max-width:60ch;
+  max-width:64ch;
 }
 
 .range-intro{
@@ -142,68 +222,22 @@ const products = [
   color:var(--color-primary);
 }
 
-.range-body{
-  padding:0 0 3.5rem;
+.range-applications{
+  padding:2.5rem 0;
+  background:#F5F1E9;
 }
 
-.product-list{
-  display:flex;
-  flex-direction:column;
-  gap:1.5rem;
-}
-
-.product-card{
-  padding:var(--card-pad);
-  background:var(--color-bg);
-  border:1px solid var(--color-border);
-  border-radius:var(--radius);
-}
-
-.product-header{
-  display:flex;
-  align-items:baseline;
-  gap:1rem;
-  flex-wrap:wrap;
-  margin-bottom:1rem;
-}
-
-.product-header h3{
-  margin:0;
+.range-applications h2{
+  margin:.5rem 0 2rem;
   font-family:var(--font-heading);
-  font-size:var(--h3-size);
+  font-size:var(--h2-size);
   color:var(--color-primary);
-}
-
-.availability{
-  font-size:.7rem;
-  font-weight:600;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:var(--color-text-light);
-}
-
-.description{
-  margin:0 0 1.75rem;
-  font-size:1rem;
-  line-height:1.75;
-  color:var(--color-text-light);
-  max-width:60ch;
-}
-
-.group-label{
-  display:block;
-  margin-bottom:1rem;
-  font-size:.7rem;
-  font-weight:600;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--color-accent);
 }
 
 .app-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:1.5rem;
+  grid-template-columns:repeat(5,1fr);
+  gap:2rem 1rem;
 }
 
 .app-item{
@@ -231,10 +265,135 @@ const products = [
 }
 
 .more-note{
-  margin:1.5rem 0 0;
+  margin:2rem 0 0;
   font-size:.85rem;
   font-style:italic;
+  text-align:center;
   color:var(--color-text-light);
+}
+
+.range-grades{
+  padding:3.5rem 0 4rem;
+}
+
+.range-grades h2{
+  margin:.5rem 0 2rem;
+  font-family:var(--font-heading);
+  font-size:var(--h2-size);
+  color:var(--color-primary);
+}
+
+.accordion{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  max-width:780px;
+}
+
+.accordion-item{
+  border:1px solid var(--color-border);
+  border-radius:var(--radius);
+  background:var(--color-bg);
+  overflow:hidden;
+}
+
+.accordion-item summary{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:1.25rem var(--card-pad);
+  cursor:pointer;
+  font-family:var(--font-heading);
+  font-size:var(--h3-size);
+  color:var(--color-primary);
+  list-style:none;
+}
+
+.accordion-item summary::-webkit-details-marker{
+  display:none;
+}
+
+.chevron{
+  display:inline-flex;
+  color:var(--color-accent);
+  transition:var(--transition);
+}
+
+.chevron :global(svg){
+  width:20px;
+  height:20px;
+}
+
+.accordion-item[open] .chevron{
+  transform:rotate(180deg);
+}
+
+.accordion-body{
+  padding:0 var(--card-pad) var(--card-pad);
+  display:flex;
+  flex-direction:column;
+  gap:2rem;
+}
+
+.product-card{
+  padding-top:1.5rem;
+  border-top:1px solid var(--color-border);
+}
+
+.product-card:first-child{
+  padding-top:0;
+  border-top:none;
+}
+
+.product-card h3{
+  margin:0 0 .75rem;
+  font-family:var(--font-heading);
+  font-size:1.2rem;
+  color:var(--color-primary);
+}
+
+.description{
+  margin:0 0 1.25rem;
+  font-size:.98rem;
+  line-height:1.7;
+  color:var(--color-text-light);
+  max-width:60ch;
+}
+
+.group-label{
+  display:block;
+  margin-bottom:.85rem;
+  font-size:.7rem;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+}
+
+.prop-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1rem 1.5rem;
+}
+
+.prop{
+  display:flex;
+  flex-direction:column;
+  gap:.3rem;
+}
+
+.prop span{
+  font-size:.68rem;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--color-text-light);
+}
+
+.prop strong{
+  font-size:.92rem;
+  font-weight:600;
+  color:var(--color-primary);
 }
 
 .group-link{
@@ -254,8 +413,12 @@ const products = [
   color:var(--color-accent);
 }
 
-@media(max-width:700px){
+@media(max-width:900px){
   .app-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .prop-grid{
     grid-template-columns:repeat(2,1fr);
   }
 }
@@ -263,6 +426,10 @@ const products = [
 @media(max-width:600px){
   .range-intro{
     padding:3rem 0 2rem;
+  }
+
+  .app-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 }
 

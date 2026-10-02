@@ -30,6 +30,7 @@ const icons = {
 
 const chevron = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>`;
 
+const fileIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>`;
 const distilledProducts = [
   {
     name: "Monoethylene Glycol (MEG)",
@@ -40,11 +41,8 @@ const distilledProducts = [
       { label: "Formula", value: "C₂H₆O₂" },
       { label: "Physical State", value: "Liquid" },
       { label: "Appearance", value: "Colourless" },
-      { label: "Odour", value: "Odourless" },
-      { label: "Melting Point", value: "-13°C" },
-      { label: "Boiling Point", value: "197°C" },
-      { label: "Flash Point", value: "116°C" },
     ],
+    pdf: "meg-applications.pdf",
   },
   {
     name: "Diethylene Glycol (DEG)",
@@ -55,11 +53,8 @@ const distilledProducts = [
       { label: "Formula", value: "C₄H₁₀O₃" },
       { label: "Physical State", value: "Liquid" },
       { label: "Appearance", value: "Colourless" },
-      { label: "Odour", value: "Practically odourless" },
-      { label: "Melting Point", value: "-10°C" },
-      { label: "Boiling Point", value: "245°C" },
-      { label: "Flash Point", value: "~124°C" },
     ],
+    pdf: "deg-applications.pdf",
   },
   {
     name: "Triethylene Glycol (TEG)",
@@ -70,27 +65,21 @@ const distilledProducts = [
       { label: "Formula", value: "C₆H₁₄O₄" },
       { label: "Physical State", value: "Liquid" },
       { label: "Appearance", value: "Colourless" },
-      { label: "Odour", value: "Odourless" },
-      { label: "Melting Point", value: "-7°C" },
-      { label: "Boiling Point", value: "285°C" },
-      { label: "Flash Point", value: "~177°C" },
     ],
+    pdf: "teg-applications.pdf",
   },
 ];
 
 const pureProducts = [
   {
     name: "Monoethylene Glycol (MEG)",
-    description:
-      "Sourced from Reliance Industries Limited, India's primary producer of Ethylene Glycol, and supplied in its original pure grade.",
+    description: "Pure grade Monoethylene Glycol, supplied to meet consistent quality standards.",
   },
   {
     name: "Diethylene Glycol (DEG)",
-    description:
-      "Sourced from Reliance Industries Limited, India's primary producer of Ethylene Glycol, and supplied in its original pure grade.",
+    description: "Pure grade Diethylene Glycol, supplied to meet consistent quality standards.",
   },
-];
----
+];---
 
 <BaseLayout
   title="Ethylene Glycols | S R Group"
@@ -113,7 +102,7 @@ const pureProducts = [
 <section class="range-applications">
   <Container>
     <span class="eyebrow">APPLICATIONS</span>
-    <h2>Where Ethylene Glycols Are Used</h2>
+        <h2>Applications Across Industries</h2>
 
     <div class="app-grid">
       {applications.map((app) => (
@@ -140,7 +129,7 @@ const pureProducts = [
           <span class="chevron" set:html={chevron} />
         </summary>
 
-        <div class="accordion-body">
+              <div class="accordion-body">
           {distilledProducts.map((product) => (
             <div class="product-card">
               <h3>{product.name}</h3>
@@ -155,11 +144,18 @@ const pureProducts = [
                   </div>
                 ))}
               </div>
+
+              <a
+                href={`${import.meta.env.BASE_URL}assets/pdfs/${product.pdf}`}
+                class="pdf-link"
+              >
+                <span class="pdf-icon" set:html={fileIcon} />
+                Applications (PDF)
+              </a>
             </div>
           ))}
         </div>
       </details>
-
       <details class="accordion-item">
         <summary>
           <span>Pure</span>
@@ -265,10 +261,10 @@ const pureProducts = [
 }
 
 .more-note{
-  margin:2rem 0 0;
+  margin:1.5rem 0 0;
   font-size:.85rem;
   font-style:italic;
-  text-align:center;
+  text-align:right;
   color:var(--color-text-light);
 }
 
@@ -368,6 +364,33 @@ const pureProducts = [
   letter-spacing:.16em;
   text-transform:uppercase;
   color:var(--color-accent);
+}
+
+.pdf-link{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  margin-top:1.25rem;
+  font-size:.9rem;
+  font-weight:600;
+  color:var(--color-primary);
+  text-decoration:none;
+  border-bottom:1px solid var(--color-accent);
+  padding-bottom:2px;
+}
+
+.pdf-link:hover{
+  color:var(--color-accent);
+}
+
+.pdf-icon{
+  display:inline-flex;
+  color:var(--color-accent);
+}
+
+.pdf-icon :global(svg){
+  width:16px;
+  height:16px;
 }
 
 .prop-grid{

@@ -67,6 +67,16 @@ const grades = [
     desc: "An isophthalic-based gelcoat for superior water, chemical and UV resistance, suited to premium and marine-grade finishes.",
     app: "Marine and premium-grade surface finishes, high-exposure FRP coatings." },
 ];
+
+const pickerCSS = grades.map((g) => `
+#grade-${g.slug}:checked ~ .picker-grid label[for="grade-${g.slug}"]{
+  background:#fff;
+  border-left-color:var(--color-accent);
+}
+#grade-${g.slug}:checked ~ .picker-grid .panel-${g.slug}{
+  display:block;
+}
+`).join("");
 ---
 
 <BaseLayout
@@ -312,14 +322,4 @@ color:var(--color-primary);
 
 </style>
 
-<style>
-{grades.map((g) => `
-#grade-${g.slug}:checked ~ .picker-grid label[for="grade-${g.slug}"]{
-  background:#fff;
-  border-left-color:var(--color-accent);
-}
-#grade-${g.slug}:checked ~ .picker-grid .panel-${g.slug}{
-  display:block;
-}
-`).join("")}
-</style>
+<style set:html={pickerCSS}></style>
